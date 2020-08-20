@@ -12,9 +12,9 @@
 
 ## Checklist
 
-- [ ] Searched for [similar issues](https://github.com/mikepenz/MaterialDrawer/issues)
-- [ ] Checked out the [sample application](https://github.com/mikepenz/MaterialDrawer/tree/develop/app)
-- [ ] Read the [README](https://github.com/mikepenz/MaterialDrawer/blob/develop/README.md)
-- [ ] Checked out the [CHANGELOG](https://github.com/mikepenz/MaterialDrawer/releases)
-- [ ] Read the [FAQ](https://github.com/mikepenz/MaterialDrawer/blob/develop/FAQ.md)
-- [ ] Checked out the [MIGRATION GUIDE](https://github.com/mikepenz/MaterialDrawer/blob/develop/MIGRATION.md)
+- [ ] Searched for [similar issues](https://github.com/sentenz/Controlz/issues)
+- [ ] Checked out the [sample application](https://github.com/sentenz/Controlz/tree/develop/app)
+- [ ] Read the [README](https://github.com/sentenz/Controlz/blob/develop/README.md)
+- [ ] Checked out the [CHANGELOG](https://github.com/sentenz/Controlz/releases)
+- [ ] Read the [FAQ](https://github.com/sentenz/Controlz/blob/develop/FAQ.md)
+- [ ] Checked out the [MIGRATION GUIDE](https://github.com/sentenz/Controlz/blob/develop/MIGRATION.md)
