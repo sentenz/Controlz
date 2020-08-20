@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaterialDrawerTheme">
+        <attr name="materialDrawerStyle" format="reference" />
+        <attr name="materialDrawerHeaderStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MaterialDrawerSliderView">
+        <attr name="materialDrawerInsetForeground" format="color|reference" />
+
+        <attr name="materialDrawerBackground" format="color|reference" />
+
+        <attr name="materialDrawerPrimaryText" format="color|reference" />
+        <attr name="materialDrawerPrimaryIcon" format="color|reference" />
+        <attr name="materialDrawerSecondaryText" format="color|reference" />
+        <attr name="materialDrawerSecondaryIcon" format="color|reference" />
+
+        <attr name="materialDrawerDividerColor" format="color|reference" />
+
+        <attr name="materialDrawerSelectedBackgroundColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="AccountHeaderView">
+        <attr name="materialDrawerHeaderLayout" format="reference" />
+        <attr name="materialDrawerCompactStyle" format="boolean" />
+
+        <!-- material drawer header attrs-->
+        <attr name="materialDrawerHeaderSelectionText" format="color|reference" />
+        <attr name="materialDrawerHeaderSelectionSubtext" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BezelImageView">
+        <attr name="materialDrawerMaskDrawable" format="reference" />
+        <attr name="materialDrawerDrawCircularShadow" format="boolean" />
+        <attr name="materialDrawerSelectorOnPress" format="color|reference" />
+    </declare-styleable>
+</resources>

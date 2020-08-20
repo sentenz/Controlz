@@ -1,0 +1,11 @@
+ext.module_group = "com.afollestad.material-dialogs"
+ext.module_name = "input"
+
+apply from: rootProject.file("gradle/android_library_config.gradle")
+
+dependencies {
+  api project(':core')
+
+  implementation deps.google_material
+  implementation deps.kotlin.stdlib8
+}

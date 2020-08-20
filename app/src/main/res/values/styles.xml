@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.MaterialDrawerStyleCustom" parent="Widget.MaterialDrawerStyle">
+        <!-- MaterialDrawer specific values -->
+        <item name="materialDrawerBackground">#303030</item>
+        <item name="materialDrawerPrimaryText">?android:textColorPrimary</item>
+        <item name="materialDrawerSecondaryText">?android:textColorSecondary</item>
+        <item name="materialDrawerDividerColor">#1FFFFFFF</item>
+        <item name="materialDrawerSelectedBackgroundColor">#1FF1433C</item>
+    </style>
+
+    <!--
+    Overwrite the Style of the BezelImageView for the whole MaterialDrawer
+    <style name="BezelImageView">
+        <item name="biv_maskDrawable">@drawable/material_drawer_square_mask</item>
+        <item name="biv_drawCircularShadow">false</item>
+        <item name="biv_selectorOnPress">@color/material_drawer_primary</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    -->
+
+    <style name="Widget.MaterialDrawerHeaderStyleCustom" parent="">
+        <item name="materialDrawerCompactStyle">true</item>
+        <item name="materialDrawerHeaderSelectionText">?colorOnSurface</item>
+        <item name="materialDrawerHeaderSelectionSubtext">?colorOnSurface</item>
+    </style>
+
+    <style name="Widget.MaterialDrawerHeaderStylePersistent" parent="">
+        <item name="materialDrawerCompactStyle">true</item>
+        <item name="materialDrawerHeaderLayout">@layout/material_drawer_compact_persistent_header
+        </item>
+        <item name="materialDrawerHeaderSelectionText">?colorOnSurface</item>
+        <item name="materialDrawerHeaderSelectionSubtext">?colorOnSurface</item>
+    </style>
+</resources>

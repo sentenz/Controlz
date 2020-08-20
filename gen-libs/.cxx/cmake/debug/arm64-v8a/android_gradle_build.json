@@ -1,0 +1,81 @@
+{
+  "stringTable": {
+    "0": "S:/Project/Android/Sentenz/Controlz/gen-libs/.cxx/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC",
+    "2": "--target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgperf_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\open62541\\CMakeLists.txt",
+    "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gperf\\CMakeLists.txt",
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake",
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gmath\\CMakeLists.txt",
+    "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "gmath-Debug-arm64-v8a": {
+      "buildCommand": "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\arm64-v8a\" gmath",
+      "buildType": "debug",
+      "toolchain": "2132953495",
+      "abi": "arm64-v8a",
+      "artifactName": "gmath",
+      "files": [
+        {
+          "src": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gmath\\src\\gmath.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gmath\\lib\\arm64-v8a\\libgmath.a",
+      "runtimeFiles": []
+    },
+    "open62541-Debug-arm64-v8a": {
+      "buildCommand": "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\arm64-v8a\" open62541",
+      "buildType": "debug",
+      "toolchain": "2132953495",
+      "abi": "arm64-v8a",
+      "artifactName": "open62541",
+      "files": [
+        {
+          "src": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\open62541\\src\\open62541.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\open62541\\lib\\arm64-v8a\\libopen62541.a",
+      "runtimeFiles": []
+    },
+    "gperf-Debug-arm64-v8a": {
+      "buildCommand": "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\arm64-v8a\" gperf",
+      "buildType": "debug",
+      "toolchain": "2132953495",
+      "abi": "arm64-v8a",
+      "artifactName": "gperf",
+      "files": [
+        {
+          "src": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gperf\\src\\gperf.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gperf\\lib\\arm64-v8a\\libgperf.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "2132953495": {
+      "cCompilerExecutable": "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

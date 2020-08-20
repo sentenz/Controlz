@@ -1,0 +1,7 @@
+# ninja log v5
+1	207	619661217	/tmp/arm64-v8a/gmath/CMakeFiles/gmath.dir/src/gmath.c.o	125c654c6a7e1be0
+6	267	619661217	/tmp/arm64-v8a/gperf/CMakeFiles/gperf.dir/src/gperf.c.o	a58fbf31da06699c
+268	500	619661218	S:/Project/Android/Sentenz/Controlz/distribution/gperf/lib/arm64-v8a/libgperf.so	5387a2e08ecaaffd
+207	777	619661218	S:/Project/Android/Sentenz/Controlz/distribution/gmath/lib/arm64-v8a/libgmath.a	7c1bd4fcfd872691
+9	36943	619661254	/tmp/arm64-v8a/open62541/CMakeFiles/open62541.dir/src/open62541.c.o	cc0c0895554bdf2
+36944	37340	619661254	S:/Project/Android/Sentenz/Controlz/distribution/open62541/lib/arm64-v8a/libopen62541.a	1cc11d3c1c2806ef

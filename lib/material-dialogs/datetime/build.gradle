@@ -1,0 +1,13 @@
+ext.module_group = "com.afollestad.material-dialogs"
+ext.module_name = "datetime"
+
+apply from: rootProject.file("gradle/android_library_config.gradle")
+
+dependencies {
+  api project(':core')
+  api deps.afollestad.date_picker
+  compileOnly deps.androidx.annotations
+
+  implementation deps.afollestad.dots_indicator
+  implementation deps.kotlin.stdlib8
+}

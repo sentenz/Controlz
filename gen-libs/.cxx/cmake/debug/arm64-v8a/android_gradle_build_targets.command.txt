@@ -1,0 +1,9 @@
+Executable : S:\Program\Android\Android-SDK\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+S:\Project\Android\Sentenz\Controlz\gen-libs\.cxx\cmake\debug\arm64-v8a
+gmath
+gperf
+open62541
+jvmArgs : 
+

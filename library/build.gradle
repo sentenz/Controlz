@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+
+    defaultConfig {
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode release.versionCode
+        versionName release.versionName
+
+        resValue "string", "materialdrawer_lib_version", "${versionName}"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    productFlavors {
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // specify the artifactId as module-name for kotlin
+    kotlinOptions.freeCompilerArgs += ["-module-name", POM_ARTIFACT_ID]
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:${versions.core}"
+    implementation "androidx.drawerlayout:drawerlayout:${versions.drawerlayout}"
+    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+    implementation "androidx.recyclerview:recyclerview:${versions.recyclerView}"
+    implementation "androidx.annotation:annotation:${versions.annotation}"
+    implementation "com.google.android.material:material:${versions.material}"
+
+    // add the constraintLayout used to create the items and headers
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+
+    // used to fill the RecyclerView with the DrawerItems
+    // and provides single and multi selection, expandable items
+    // https://github.com/mikepenz/FastAdapter
+    api "com.mikepenz:fastadapter:${versions.fastadapter}"
+    api "com.mikepenz:fastadapter-extensions-expandable:${versions.fastadapter}"
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+}
+
+if (project.hasProperty('pushall') || project.hasProperty('library_only')) {
+    apply from: '../gradle-release.gradle'
+}

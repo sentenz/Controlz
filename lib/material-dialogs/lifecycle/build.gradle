@@ -1,0 +1,12 @@
+ext.module_group = "com.afollestad.material-dialogs"
+ext.module_name = "lifecycle"
+
+apply from: rootProject.file("gradle/android_library_config.gradle")
+
+dependencies {
+  api project(':core')
+
+  implementation deps.kotlin.stdlib8
+  implementation deps.androidx.lifecycle.runtime
+  annotationProcessor deps.androidx.lifecycle.compiler
+}

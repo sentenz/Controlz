@@ -1,0 +1,19 @@
+[
+{
+  "directory": "S:/Project/Android/Sentenz/Controlz/gen-libs/.cxx/cmake/debug/arm64-v8a",
+  "command": "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC   -o \\tmp\\arm64-v8a\\gmath\\CMakeFiles\\gmath.dir\\src\\gmath.c.o   -c S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gmath\\src\\gmath.c",
+  "file": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gmath\\src\\gmath.c"
+},
+
+{
+  "directory": "S:/Project/Android/Sentenz/Controlz/gen-libs/.cxx/cmake/debug/arm64-v8a",
+  "command": "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgperf_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC   -o \\tmp\\arm64-v8a\\gperf\\CMakeFiles\\gperf.dir\\src\\gperf.c.o   -c S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gperf\\src\\gperf.c",
+  "file": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gperf\\src\\gperf.c"
+},
+
+{
+  "directory": "S:/Project/Android/Sentenz/Controlz/gen-libs/.cxx/cmake/debug/arm64-v8a",
+  "command": "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC   -o \\tmp\\arm64-v8a\\open62541\\CMakeFiles\\open62541.dir\\src\\open62541.c.o   -c S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\open62541\\src\\open62541.c",
+  "file": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\open62541\\src\\open62541.c"
+}
+]

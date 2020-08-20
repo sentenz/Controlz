@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sentenz.controlz">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Dedicated  device - Recent Button
+    <uses-permission android:name="android.permission.REORDER_TASKS" /> -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        />
+
+    <application
+        android:name=".CustomApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/SampleApp.DayNight"
+        tools:ignore="GoogleAppIndexingWarning">
+        <!-- android:supportsRtl="true" -->
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SampleApp.DayNight"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Dedicated  device - Home Button
+                https://developer.android.com/work/dpc/dedicated-devices/cookbook?hl=en#kotlin
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" /> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PaternosterActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".CompactHeaderDrawerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SampleApp.DayNight.Compact" />
+        <activity
+            android:name=".PersistentDrawerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SampleApp.DayNight.Persistent" />
+        <activity
+            android:name=".ActionBarActivity"
+            android:theme="@style/SampleApp.DayNight.DarkActionBar" />
+        <activity
+            android:name=".MenuDrawerActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".ControlActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".AdvancedActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".EmbeddedDrawerActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".MiniDrawerActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".FullscreenDrawerActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".FragmentActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".CollapsingToolbarActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".CrossfadeDrawerLayoutActvitiy"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".NfcActivity"
+            android:theme="@style/SampleApp.DayNight" />
+        <activity
+            android:name=".NavControllerActivity"
+            android:label="NavControllerExample"
+            android:theme="@style/SampleApp.DayNight" />
+    </application>
+
+</manifest>

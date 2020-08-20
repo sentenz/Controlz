@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nfc_read"
+        android:orderInCategory="1"
+        android:title="@string/drawer_item_read_with_nfc"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nfc_write"
+        android:orderInCategory="2"
+        android:title="@string/drawer_item_write_with_nfc"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/opcua"
+        android:icon="@drawable/ic_baseline_blur_on_24"
+        android:title="kjljk"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/stt"
+        android:icon="@drawable/ic_baseline_keyboard_voice_24"
+        android:title="Item 1"
+        app:showAsAction="always" />
+</menu>

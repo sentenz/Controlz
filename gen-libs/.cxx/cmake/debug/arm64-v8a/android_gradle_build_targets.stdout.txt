@@ -1,0 +1,2 @@
+ninja: Entering directory `S:\Project\Android\Sentenz\Controlz\gen-libs\.cxx\cmake\debug\arm64-v8a'
+ninja: no work to do.
