@@ -25,6 +25,7 @@ android {
 
         setProperty("archivesBaseName", "Controlz-v$versionName-c$versionCode")
 
+        missingDimensionStrategy 'react-native-camera', 'general'
 /*
         externalNativeBuild {
             // For ndk-build, instead use the ndkBuild block.
