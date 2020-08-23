@@ -11,8 +11,7 @@
 # Generated files
 bin/
 gen/
-.cxx/
-*.a
+
 
 # Gradle files
 .gradle/
@@ -31,4 +30,5 @@ proguard/
 #IntelliJ files
 *.iml
 .idea/
-functiongraphic.psd
+.cxx/
+*.a
