@@ -92,6 +92,11 @@ android {
         dataBinding true
         viewBinding true
     }
+
+    ndkVersion '21.3.6528147'
+
+    //ndkPath "/S/Program/Android/Android-SDK/ndk" ///S/Program/Android/Android-SDK/ndk/21.3.6528147
+    //ndkVersion "21.3.6528147"
 }
 
 dependencies {
