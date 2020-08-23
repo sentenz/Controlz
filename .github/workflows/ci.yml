@@ -31,8 +31,8 @@ jobs:
                 path: ~/.gradle/caches
                 key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
 
-            #- name: Build
-            #  run: ./gradlew clean build
+            - name: Build
+              run: ./gradlew clean build
               
             #- name: Print contents in current directory
             #  run: ls -la
