@@ -1,10 +1,10 @@
 {
   "buildFiles": [
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
     "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\open62541\\CMakeLists.txt",
     "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gperf\\CMakeLists.txt",
-    "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake",
-    "S:\\Program\\Android\\Android-SDK\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
     "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\gmath\\CMakeLists.txt",
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
     "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\src\\main\\cpp\\CMakeLists.txt"
   ],
   "cleanCommands": [

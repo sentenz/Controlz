@@ -32,7 +32,7 @@ jobs:
                 key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
 
             - name: Build
-              run: ./gradlew clean build
+              run: ./gradlew clean build --warning-mode=all
               
             #- name: Print contents in current directory
             #  run: ls -la
