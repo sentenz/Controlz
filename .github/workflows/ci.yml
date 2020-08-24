@@ -4,8 +4,7 @@ name: Android CI
 
 on:
     push:
-        branches:
-            - master
+        branches:[ master ]
     pull_request:
     
 jobs:
@@ -35,19 +34,9 @@ jobs:
               with:
                 path: ~/.gradle/caches
                 key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
-
-            - name: Build project
-                run: .github/scripts/gradlew_recursive.sh assembleDebug
-            - name: Zip artifacts
-                run: zip -r assemble.zip . -i '**/build/*.apk' '**/build/*.aab' '**/build/*.aar' '**/build/*.so'
-            - name: Upload artifacts
-                uses: actions/upload-artifact@v1
-                with:
-                    name: assemble
-                    path: assemble.zip
           
-            #- name: Build
-            #  run: ./gradlew clean build --warning-mode=all --stacktrace
+            - name: Build
+              run: ./gradlew clean build --warning-mode=all --stacktrace
               
             #- name: Print contents in current directory
             #  run: ls -la
