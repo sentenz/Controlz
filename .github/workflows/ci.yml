@@ -40,7 +40,7 @@ jobs:
               run: npx envinfo
 
             - name: Build
-              run: ./gradlew clean build --warning-mode=all --stacktrace
+              run: ./gradlew clean build #--warning-mode=all --stacktrace
               
             #- name: Print contents in current directory
             #  run: ls -la
