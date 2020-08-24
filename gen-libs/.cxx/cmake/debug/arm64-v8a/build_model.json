@@ -173,7 +173,6 @@
       "project": {
         "compilerSettingsCacheFolder": "S:\\Project\\Android\\Sentenz\\Controlz\\.cxx",
         "cxxFolder": "S:\\Project\\Android\\Sentenz\\Controlz\\.cxx",
-        "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
@@ -197,7 +196,10 @@
     "objFolder": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\build\\intermediates\\cmake\\debug\\obj",
     "variantName": "debug",
     "validAbiList": [
-      "ARM64_V8A"
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
     ],
     "prefabDirectory": "S:\\Project\\Android\\Sentenz\\Controlz\\gen-libs\\.cxx\\cmake\\debug\\prefab",
     "prefabPackageDirectoryList": []

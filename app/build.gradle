@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+apply plugin: 'kotlin-kapt'
 
 // wrap with try and catch so the build is working even if the signing stuff is missing
 try {
@@ -24,6 +24,7 @@ android {
         multiDexEnabled true
 
         setProperty("archivesBaseName", "Controlz-v$versionName-c$versionCode")
+
 
 /*
         externalNativeBuild {
@@ -93,8 +94,6 @@ android {
         viewBinding true
     }
 
-    ndkVersion '21.3.6528147'
-
     //ndkPath "/S/Program/Android/Android-SDK/ndk" ///S/Program/Android/Android-SDK/ndk/21.3.6528147
     //ndkVersion "21.3.6528147"
 }
@@ -122,8 +121,10 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 
     // needed to fix glide androidX support
-    implementation "com.android.support:support-annotations:28.0.0"
+    kapt 'com.android.support:support-annotations:28.0.0'
     annotationProcessor 'com.android.support:support-annotations:28.0.0'
+//    implementation "com.android.support:support-annotations:28.0.0"
+//    annotationProcessor 'com.android.support:support-annotations:28.0.0'
 
     // the sample uses more advanced functions of the fastadapter
     // https://github.com/mikepenz/FastAdapter/
