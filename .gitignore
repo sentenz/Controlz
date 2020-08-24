@@ -31,4 +31,5 @@ proguard/
 *.iml
 .idea/
 .cxx/
+gen-libs/.cxx/
 *.a
