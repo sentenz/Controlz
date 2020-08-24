@@ -25,7 +25,8 @@ android {
 
         setProperty("archivesBaseName", "Controlz-v$versionName-c$versionCode")
 
-        missingDimensionStrategy 'library', 'gen-libs'
+        missingDimensionStrategy 'gen-libs', 'library'
+
 /*
         externalNativeBuild {
             // For ndk-build, instead use the ndkBuild block.
