@@ -30,7 +30,9 @@ proguard/
 #IntelliJ files
 *.iml
 .idea/
+
 .cxx/
-app/.cxx/
-gen-libs/.cxx/
 *.a
+
+# Still in github!
+*/.cxx/
