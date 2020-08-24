@@ -1,18 +1,21 @@
 # Thanks to https://github.com/coil-kt/coil/blob/master/.github/workflows/ci.yml
 
-name: CI
+name: Android CI
+
 on:
     push:
         branches:
             - master
     pull_request:
+    
 jobs:
     ci:
         name: Build + Test
         runs-on: ubuntu-latest
+        
         steps:
             - name: Checkout current repository in ubuntu's file system
-              uses: actions/checkout@v2
+              uses: actions/checkout@v1
               with:
                 submodules: recursive
             
@@ -33,8 +36,18 @@ jobs:
                 path: ~/.gradle/caches
                 key: gradle-${{ runner.os }}-${{ hashFiles('**/build.gradle') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }} }}
 
-            - name: Build
-              run: ./gradlew clean build --warning-mode=all --stacktrace
+      - name: Build project
+        run: .github/scripts/gradlew_recursive.sh assembleDebug
+      - name: Zip artifacts
+        run: zip -r assemble.zip . -i '**/build/*.apk' '**/build/*.aab' '**/build/*.aar' '**/build/*.so'
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: assemble
+          path: assemble.zip
+          
+            #- name: Build
+            #  run: ./gradlew clean build --warning-mode=all --stacktrace
               
             #- name: Print contents in current directory
             #  run: ls -la
