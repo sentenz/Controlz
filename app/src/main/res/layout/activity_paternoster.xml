@@ -22,6 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+<!--
         <com.github.glomadrian.grav.GravView
             android:id="@+id/grav"
             android:layout_width="300dp"
@@ -43,6 +44,7 @@
             app:path_variance_from="1dp"
             app:path_variance_to="20dp"
             tools:ignore="MissingConstraints" />
+-->
 
         <com.hanks.htextview.evaporate.EvaporateTextView
             android:id="@+id/textview"

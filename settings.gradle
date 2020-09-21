@@ -1,5 +1,5 @@
 include ':app'
-include ':lib'
+//include ':lib'
 include ':library'
 include ':library-iconics'
 include ':library-nav'
