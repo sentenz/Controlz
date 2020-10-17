@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--
+        <!--
         <com.github.glomadrian.grav.GravView
             android:id="@+id/grav"
             android:layout_width="300dp"
@@ -45,6 +45,21 @@
             app:path_variance_to="20dp"
             tools:ignore="MissingConstraints" />
 -->
+
+        <com.victor.loading.rotate.RotateLoading
+            android:id="@+id/rotateloading"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="68dp"
+            android:layout_marginBottom="363dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loading_color="@color/md_grey_700"
+            app:loading_width="10dp"
+            tools:ignore="MissingClass,MissingConstraints" />
 
         <com.hanks.htextview.evaporate.EvaporateTextView
             android:id="@+id/textview"
@@ -102,6 +117,7 @@
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 
+        <!--
         <jp.co.recruit_lifestyle.android.widget.PlayPauseButton
             android:id="@+id/play_pause_button"
             android:layout_width="80dp"
@@ -114,6 +130,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialTextField"
             app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+-->
+        <com.ohoussein.playpause.PlayPauseView
+            android:id="@+id/play_pause_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="505dp"
+            android:layout_marginBottom="26dp"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pause_bg="@color/colorPrimary"
+            app:play_bg="@color/md_grey_700"
+            app:fill_color="@color/md_white_1000"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

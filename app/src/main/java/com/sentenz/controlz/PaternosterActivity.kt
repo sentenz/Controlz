@@ -20,9 +20,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
-import com.github.glomadrian.grav.GravView
 import com.hanks.htextview.base.HTextView
-import jp.co.recruit_lifestyle.android.widget.PlayPauseButton
+import com.ohoussein.playpause.PlayPauseView
+import com.victor.loading.rotate.RotateLoading
 import kotlinx.android.synthetic.main.activity_multi_sample.*
 import java.util.*
 
@@ -71,7 +71,8 @@ class PaternosterActivity : AppCompatActivity() {
 
     private fun uiComposition() {
         /* Circular graph */
-        val gravView = findViewById<GravView>(R.id.grav).apply { visibility = View.INVISIBLE }
+        //val gravView = findViewById<GravView>(R.id.grav).apply { visibility = View.INVISIBLE }
+        val rotateLoading = findViewById<RotateLoading>(R.id.rotateloading)
 
         /* Text view */
         textView = findViewById<HTextView>(R.id.textview)
@@ -88,23 +89,19 @@ class PaternosterActivity : AppCompatActivity() {
         }
 
         /* Play & pause button */
-        val playPauseButton = findViewById<PlayPauseButton>(R.id.play_pause_button).apply {
-            setColor(resources.getColor(R.color.md_grey_300))
-        }
-
-        playPauseButton.setOnControlStatusChangeListener { view, state ->
-            if (state) {
-                gravView.visibility = View.VISIBLE
+        val playPauseView = findViewById<PlayPauseView>(R.id.play_pause_view)
+        playPauseView.setOnClickListener {
+            playPauseView.toggle()
+            if (!playPauseView.isPlay) {
+                rotateLoading.start()
                 var id : Int = 0
                 if (editText.text.toString().trim().isNotEmpty()) {
                     id = editText.text.toString().toInt()
                 }
                 jniOpcUaTaskUp(id)
-                Toast.makeText(this, "Play", Toast.LENGTH_SHORT).show()
             } else {
-                gravView.visibility = View.INVISIBLE
+                rotateLoading.stop()
                 jniOpcUaTaskIdle()
-                Toast.makeText(this, "Pause", Toast.LENGTH_SHORT).show()
             }
         }
     }

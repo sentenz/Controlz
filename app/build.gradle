@@ -194,6 +194,14 @@ dependencies {
     // https://github.com/glomadrian/Grav
     implementation 'com.github.glomadrian:Grav:1.1'
 
+    // lib Loading
+    // https://github.com/yankai-victor/Loading
+    implementation 'com.victor:lib:1.0.4'
+
+    // lib playpauseview
+    // https://github.com/OHoussein/android-material-play-pause-view
+    implementation 'com.github.ohoussein.playpauseview:playpauseview:1.0.2'
+
     // Generate C/C++ Code
     // https://github.com/android/ndk-samples/tree/master/hello-libs
     // uncomment out this one to generate lib binaries,
