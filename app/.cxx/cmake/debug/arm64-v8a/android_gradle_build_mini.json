@@ -1,8 +1,8 @@
 {
   "buildFiles": [
-    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
+    "S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\CMakeLists.txt",
     "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
-    "S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\CMakeLists.txt"
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
     "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
@@ -15,9 +15,7 @@
       "abi": "arm64-v8a",
       "output": "S:\\Project\\Android\\Sentenz\\Controlz\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libnative-lib.so",
       "runtimeFiles": [
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gmath\\lib\\arm64-v8a\\libgmath.a",
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gperf\\lib\\arm64-v8a\\libgperf.so",
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\open62541\\lib\\arm64-v8a\\libopen62541.a"
+        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gperf\\lib\\arm64-v8a\\libgperf.so"
       ]
     }
   }

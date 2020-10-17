@@ -1,7 +1,7 @@
 # ninja log v5
-4	180	619920270	/tmp/arm64-v8a/gmath/CMakeFiles/gmath.dir/src/gmath.c.o	1b175caa78943a6f
-0	246	619920270	/tmp/arm64-v8a/gperf/CMakeFiles/gperf.dir/src/gperf.c.o	4e57d77fef773164
-246	395	619920270	S:/Project/Android/Sentenz/Controlz/distribution/gperf/lib/arm64-v8a/libgperf.so	1ac67734a8becaa1
-181	588	619920271	S:/Project/Android/Sentenz/Controlz/distribution/gmath/lib/arm64-v8a/libgmath.a	d968e8a2840c245e
-7	20316	619920290	/tmp/arm64-v8a/open62541/CMakeFiles/open62541.dir/src/open62541.c.o	c0c67f5e5cee0551
-20317	20611	619920291	S:/Project/Android/Sentenz/Controlz/distribution/open62541/lib/arm64-v8a/libopen62541.a	7423d9ae5b5abf35
+8	256	624416102	/tmp/arm64-v8a/gmath/CMakeFiles/gmath.dir/src/gmath.c.o	1b175caa78943a6f
+2	385	624416102	/tmp/arm64-v8a/gperf/CMakeFiles/gperf.dir/src/gperf.c.o	4e57d77fef773164
+385	607	624416102	S:/Project/Android/Sentenz/Controlz/distribution/gperf/lib/arm64-v8a/libgperf.so	1ac67734a8becaa1
+257	751	624416103	S:/Project/Android/Sentenz/Controlz/distribution/gmath/lib/arm64-v8a/libgmath.a	d968e8a2840c245e
+13	46456	624416148	/tmp/arm64-v8a/open62541/CMakeFiles/open62541.dir/src/open62541.c.o	c0c67f5e5cee0551
+46459	46833	624416149	S:/Project/Android/Sentenz/Controlz/distribution/open62541/lib/arm64-v8a/libopen62541.a	7423d9ae5b5abf35

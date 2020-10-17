@@ -4,9 +4,9 @@
     "1": "--target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/gmath/include -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/gperf/include -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/open62541/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -Werror -fvisibility=hidden -DUA_ARCHITECTURE_POSIX -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
-    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
+    "S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\CMakeLists.txt",
     "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
-    "S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\CMakeLists.txt"
+    "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
     "S:\\Program\\Android\\Android-SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"S:\\Project\\Android\\Sentenz\\Controlz\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
@@ -29,9 +29,7 @@
       "headers": [],
       "output": "S:\\Project\\Android\\Sentenz\\Controlz\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libnative-lib.so",
       "runtimeFiles": [
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gmath\\lib\\arm64-v8a\\libgmath.a",
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gperf\\lib\\arm64-v8a\\libgperf.so",
-        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\open62541\\lib\\arm64-v8a\\libopen62541.a"
+        "S:\\Project\\Android\\Sentenz\\Controlz\\distribution\\gperf\\lib\\arm64-v8a\\libgperf.so"
       ]
     }
   },

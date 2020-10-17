@@ -1,4 +1,4 @@
-Executable : S:\Program\Android\Android-SDK\cmake\3.10.2.4988404\bin\cmake.exe
+                Executable : S:\Program\Android\Android-SDK\cmake\3.10.2.4988404\bin\cmake.exe
 arguments : 
 -HS:\Project\Android\Sentenz\Controlz\app\src\main\cpp
 -DCMAKE_FIND_ROOT_PATH=S:\Project\Android\Sentenz\Controlz\app\.cxx\cmake\debug\prefab\arm64-v8a\prefab
