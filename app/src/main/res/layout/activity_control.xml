@@ -41,15 +41,16 @@
                 android:layout_marginBottom="12dp"
                 android:layout_marginLeft="48dp"
                 android:layout_marginRight="48dp"
-                android:tint="@color/md_grey_400"
                 android:src="@drawable/ic_keyboard_arrow_up_down_black_12dp"
+                android:tint="@color/md_grey_800"
                 app:pressedColor="@color/colorPrimary"
-                app:centerCircleNormalColor="@color/md_grey_400"
+                app:normalColor="@color/md_grey_700"
+                app:centerCircleNormalColor="@color/md_grey_300"
+                app:centerTextColor="@color/md_black_1000"
                 app:centerCirclePressEnabled="true"
                 app:centerCircleRatio="5"
                 app:directionSectionAngle="90"
-                app:centerTextSize="30dp"
-                app:centerTextColor="@color/md_black_1000" />
+                app:centerTextSize="30dp" />
 
         </LinearLayout >
 
