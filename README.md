@@ -7,10 +7,11 @@ Android with Kotlin
  - [License](#lic)
  
 ## <a name="cont"></a> Contributing
-[CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md)
+Link to [CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md)
 
 ## <a name="coc"></a> Contributor Code of Conduct
-[CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md) 
+Link to [CODE_OF_CONDUCT.md](https://github.com/Sentenz/general/blob/main/CODE_OF_CONDUCT.md)
+
 ## <a name="dev"></a> Developed By
 * Alexej Kloos
 * [sentenz.eu](http://sentenz.eu) - <alexej.kloos@sentenz.eu>
