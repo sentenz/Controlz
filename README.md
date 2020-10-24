@@ -1,20 +1,20 @@
 # Controlz
 Android with Kotlin
 
-- [Code of Conduct](#coc)
-- [Contributing](#cont)
+- [Contributor Code of Conduct](#coc)
+- [Contributing Guidelines](#cont)
 - [Coding Rules](#rules)
 - [Developed](#dev)
 - [License](#lic)
  
-## <a name="coc"></a> Code of Conduct
+## <a name="coc"></a> Contributor Code of Conduct
 Help us keep projects open and inclusive. Please read and follow our [CODE_OF_CONDUCT.md](https://github.com/Sentenz/general/blob/main/CODE_OF_CONDUCT.md).
 
-## <a name="cont"></a> Contributing
-Please read our [CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md).
+## <a name="cont"></a> Contributing Guidelines
+Read through our [contributing guidelines](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md) to learn about our submission process and more.
 
 ## <a name="rules"></a> Coding Rules
-To ensure consistency throughout the source code, keep these [CODING_RULE.md](https://github.com/Sentenz/general/blob/main/CODING_RULE.md) in mind as you are working.
+To ensure consistency throughout the source code, keep these [coding rules](https://github.com/Sentenz/general/blob/main/CODING_RULE.md) in mind as you are working.
 
 ## <a name="dev"></a> Developed By
 * Alexej Kloos
