@@ -11,7 +11,7 @@ Android with Kotlin
 Help us keep projects open and inclusive. Please read and follow our [CODE_OF_CONDUCT.md](https://github.com/Sentenz/general/blob/main/CODE_OF_CONDUCT.md).
 
 ## <a name="cont"></a> Contributing
-Please read our [CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md)
+Please read our [CONTRIBUTING.md](https://github.com/Sentenz/general/blob/main/CONTRIBUTING.md).
 
 ## <a name="rules"></a> Coding Rules
 To ensure consistency throughout the source code, keep these [CODING_RULE.md](https://github.com/Sentenz/general/blob/main/CODING_RULE.md) in mind as you are working.
