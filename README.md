@@ -1,14 +1,18 @@
 # Controlz
 Android with Kotlin
 
-
-# Developed By
-
-* Alexej Kloos
- * [sentenz.eu](http://sentenz.eu) - <alexej.kloos@sentenz.eu>
+- [Contributing Guidelines](#cont)
+- [Developed](#dev)
+- [License](#lic)
  
-# License
+## <a name="cont"></a> Contributing Guidelines
+Read through our [contributing guidelines](https://github.com/Sentenz/general/blob/main/docs/CONTRIBUTING.md) to learn about our submission process, coding style guide and more.
 
+## <a name="dev"></a> Developed By
+* Alexej Kloos
+* [sentenz.eu](http://sentenz.eu) - <alexej.kloos@sentenz.eu>
+ 
+## <a name="lic"></a> License
     Copyright 2020 Alexej Kloos
 
     Licensed under the Apache License, Version 2.0 (the "License");
