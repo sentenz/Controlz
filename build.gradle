@@ -45,8 +45,10 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
         classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:${versions.aboutLibs}"
+        classpath 'de.gliderpilot.gradle.semantic-release:gradle-semantic-release-plugin:1.0.0'
     }
 }
+apply plugin: 'de.gliderpilot.semantic-release'
 
 allprojects {
     repositories {
