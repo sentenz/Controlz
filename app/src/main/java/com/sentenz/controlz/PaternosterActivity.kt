@@ -264,6 +264,7 @@ class PaternosterActivity : AppCompatActivity() {
         invalidateOptionsMenu()
     }
 
+
     fun jniMessageCallback(message: String) {
         Log.i("jniMessageCallback", message)
     }
