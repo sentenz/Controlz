@@ -70,15 +70,14 @@ class PaternosterActivity : AppCompatActivity() {
     }
 
     private fun uiComposition() {
-        /* Circular graph */
-        //val gravView = findViewById<GravView>(R.id.grav).apply { visibility = View.INVISIBLE }
+        /* Circular graph view */
         val rotateLoading = findViewById<RotateLoading>(R.id.rotateloading)
 
         /* Text view */
         textView = findViewById<HTextView>(R.id.textview)
         textView.animateText("SENTENZ")
 
-        /* Edit text */
+        /* Edit text view */
         val editText = findViewById<EditText>(R.id.textedit)
         editText.doAfterTextChanged {
             if (it.toString().trim().isNotEmpty()) {
@@ -88,7 +87,7 @@ class PaternosterActivity : AppCompatActivity() {
             }
         }
 
-        /* Play & pause button */
+        /* Play & pause button view */
         val playPauseView = findViewById<PlayPauseView>(R.id.play_pause_view)
         playPauseView.setOnClickListener {
             playPauseView.toggle()

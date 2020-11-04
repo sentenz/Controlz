@@ -24,6 +24,7 @@
     <color name="materialize_primary">@color/primary</color>
     <color name="materialize_primary_dark">@color/primary_dark</color>
     <color name="materialize_primary_light">@color/primary_light</color>
+    <color name="md_transparent">#00000000</color>
     <color name="md_amber_100">#FFECB3</color>
     <color name="md_amber_200">#FFE082</color>
     <color name="md_amber_300">#FFD54F</color>

@@ -394,7 +394,7 @@ opcua_client_connect() {
 
     UA_StatusCode retval = UA_STATUSCODE_GOOD;
     g_running = true;
-    while(g_running) {
+    while (g_running) {
         /* if already connected, this will return GOOD and do nothing */
         /* if the connection is closed/errored, the connection will be reset and then reconnected */
         /* Alternatively you can also use UA_Client_getState to get the current state */
@@ -706,8 +706,8 @@ Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskDown(JNIEnv *env, jobj
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskIdle(JNIEnv *env, jobject thiz, jint value) {
-    UA_StatusCode retval = opcua_client_idle((int) value);
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskIdle(JNIEnv *env, jobject thiz) {
+    UA_StatusCode retval = opcua_client_idle();
     return retval;
 }
 

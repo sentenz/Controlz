@@ -1,7 +1,0 @@
-[
-{
-  "directory": "S:/Project/Android/Sentenz/Controlz/app/.cxx/cmake/debug/arm64-v8a",
-  "command": "S:\\Program\\Android\\Android-SDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=S:/Program/Android/Android-SDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=S:/Program/Android/Android-SDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/gmath/include -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/gperf/include -IS:/Project/Android/Sentenz/Controlz/app/src/main/cpp/../../../../distribution/open62541/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Werror -fvisibility=hidden -DUA_ARCHITECTURE_POSIX -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\native-lib.cpp.o -c S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\native-lib.cpp",
-  "file": "S:\\Project\\Android\\Sentenz\\Controlz\\app\\src\\main\\cpp\\native-lib.cpp"
-}
-]

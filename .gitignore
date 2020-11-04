@@ -33,6 +33,4 @@ proguard/
 
 .cxx/
 *.a
-
-# Still in github!
-*/.cxx/
+.cxx
