@@ -6,35 +6,17 @@ on:
       - dev
 
 jobs:
-    ci:
-        runs-on: ubuntu-latest
-        container:
-            image: docker://fabernovel/android:api-29-v1.1.0
-        
-        steps:
-            - name: Checkout current repository in ubuntu's file system
-              uses: actions/checkout@v2.1.0
+  my_android_job:
+    runs-on: ubuntu-latest # Works also with self hosted runner supporting docker
 
-            - name: Ruby cache
-              uses: actions/cache@v1.2.0
-              with:
-                path: vendor/bundle
-                key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-gems-
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2.1.0
 
-            - name: Gradle cache
-              uses: actions/cache@v1.2.0
-              with:
-                path: ~/.gradle
-                key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-                restore-keys: |
-                  ${{ runner.os }}-gradle
-
-            - name: Bundle install
-              run: |
-                  bundle config path vendor/bundle
-                  bundle check || bundle install
-
-            - name: Fastlane
-              run: bundle exec fastlane my_lane
+    - name: Exec fastlane
+      uses: fabernovel/docker-android
+      with:
+        docker-android-tag: api-29-ndk-v1.1.0
+        exec: |
+          bundle install;
+          bundle exec fastlane my_lane
