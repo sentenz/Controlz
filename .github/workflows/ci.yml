@@ -7,20 +7,19 @@ on:
 
 jobs:
     ci:
-        name: Build + Test
         runs-on: ubuntu-latest
         container:
             image: docker://fabernovel/android:api-29-v1.1.0
         
         steps:
             - name: Checkout current repository in ubuntu's file system
-              uses: actions/checkout@v2
+              uses: actions/checkout@v2.1.0
             
-            - name: Docker Android Action
-              uses: faberNovel/docker-android@v1.1.1
+            #- name: Docker Android Action
+            #  uses: faberNovel/docker-android@v1.1.1
 
             - name: Ruby cache
-              uses: actions/cache@v1
+              uses: actions/cache@v1.2.0
               with:
                 path: vendor/bundle
                 key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -28,7 +27,7 @@ jobs:
                   ${{ runner.os }}-gems-
 
             - name: Gradle cache
-              uses: actions/cache@v1
+              uses: actions/cache@v1.2.0
               with:
                 path: /root/.gradle
                 key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
