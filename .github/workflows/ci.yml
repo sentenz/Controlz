@@ -19,20 +19,20 @@ jobs:
             - name: Docker Android Action
               uses: faberNovel/docker-android@v1.1.1
 
-            # - name: Ruby cache
-              # uses: actions/cache@v1
-              # with:
-              # path: vendor/bundle
-              # key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-              # restore-keys: |
-                  # ${{ runner.os }}-gems-
+            - name: Ruby cache
+              uses: actions/cache@v1
+              with:
+                path: vendor/bundle
+                key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-gems-
 
             - name: Gradle cache
               uses: actions/cache@v1
               with:
-              path: ~/.gradle
-              key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-              restore-keys: |
+                path: ~/.gradle
+                key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+                restore-keys: |
                   ${{ runner.os }}-gradle
 
             - name: Bundle install
