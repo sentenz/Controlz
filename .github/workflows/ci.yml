@@ -1,22 +1,22 @@
 name: GitHub Action sample
 
 on:
-  push:
-    branches:
-      - dev
+    push:
+        branches:
+            - dev
 
 jobs:
-  my_android_job:
-    runs-on: ubuntu-latest # Works also with self hosted runner supporting docker
+    my_android_job:
+        runs-on: ubuntu-latest # Works also with self hosted runner supporting docker
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2.1.0
+        steps:
+        - name: Checkout
+            uses: actions/checkout@v2.1.0
 
-    - name: Exec fastlane
-      uses: fabernovel/docker-android
-      with:
-        docker-android-tag: api-29-ndk-v1.1.0
-        exec: |
-          bundle install;
-          bundle exec fastlane my_lane
+        - name: Exec fastlane
+            uses: fabernovel/docker-android
+            with:
+            docker-android-tag: api-29-ndk-v1.1.0
+            exec: |
+                bundle install;
+                bundle exec fastlane my_lane
