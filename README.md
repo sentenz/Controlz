@@ -5,6 +5,7 @@ Android with Kotlin
 - [Developed](#dev)
 - [License](#lic)
  
+ 
 ## <a name="cont"></a> Contributing Guidelines
 Read through our [contributing guidelines](https://github.com/Sentenz/general/blob/main/docs/CONTRIBUTING.md) to learn about our submission process, coding style guide and more.
 
