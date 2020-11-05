@@ -16,7 +16,7 @@ jobs:
             - name: Exec fastlane
               uses: fabernovel/docker-android@v1.1.1
               with:
-              docker-android-tag: api-29-ndk-v1.1.0
+              #docker-android-tag: api-29-ndk-v1.1.0
               exec: |
                 bundle install;
                 bundle exec fastlane my_lane
