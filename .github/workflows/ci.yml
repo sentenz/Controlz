@@ -13,32 +13,32 @@ jobs:
         #image: docker://fabernovel/android:api-29-v1.1.0
         
         steps:
-            - name: Checkout
-            uses: actions/checkout@v2.1.0
+            - name: Checkout current repository in ubuntu's file system
+              uses: actions/checkout@v2
             
             - name: Docker Android Action
               uses: faberNovel/docker-android@v1.1.1
 
             - name: Ruby cache
-            uses: actions/cache@v1.2.0
-            with:
-            path: vendor/bundle
-            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-            restore-keys: |
-                ${{ runner.os }}-gems-
+                uses: actions/cache@v1.2.0
+                with:
+                path: vendor/bundle
+                key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+                restore-keys: |
+                    ${{ runner.os }}-gems-
 
             - name: Gradle cache
-            uses: actions/cache@v1.2.0
-            with:
-            path: /root/.gradle
-            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-            restore-keys: |
-                ${{ runner.os }}-gradle
+                uses: actions/cache@v1.2.0
+                with:
+                path: /root/.gradle
+                key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+                restore-keys: |
+                    ${{ runner.os }}-gradle
 
             - name: Bundle install
-            run: |
-                bundle config path vendor/bundle
-                bundle check || bundle install
+                run: |
+                    bundle config path vendor/bundle
+                    bundle check || bundle install
 
             - name: Fastlane
-            run: bundle exec fastlane my_lane
+                run: bundle exec fastlane my_lane
