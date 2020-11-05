@@ -14,9 +14,6 @@ jobs:
         steps:
             - name: Checkout current repository in ubuntu's file system
               uses: actions/checkout@v2.1.0
-            
-            #- name: Docker Android Action
-            #  uses: faberNovel/docker-android@v1.1.1
 
             - name: Ruby cache
               uses: actions/cache@v1.2.0
@@ -29,7 +26,7 @@ jobs:
             - name: Gradle cache
               uses: actions/cache@v1.2.0
               with:
-                path: /root/.gradle
+                path: ~/.gradle
                 key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
                 restore-keys: |
                   ${{ runner.os }}-gradle
