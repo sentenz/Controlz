@@ -4,6 +4,7 @@
 
 if [ "$1" = "release" ];
 then
+    ./gradlew gen-libs:bintrayUpload -Plibrary_only
     ./gradlew library:bintrayUpload -Plibrary_only
     ./gradlew library-nav:bintrayUpload -x test -x lint -Plibrary_nav_only
     ./gradlew library-iconics:bintrayUpload -x test -x lint -Plibrary_iconics_only
