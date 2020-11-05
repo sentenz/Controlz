@@ -6,35 +6,35 @@ on:
       - dev
 
 jobs:
-  my_android_job:
+  ci:
     runs-on: ubuntu-latest # Works also with self hosted runner supporting docker
     container:
       image: docker://fabernovel/android:api-29-v1.1.0
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2.1.0
+        steps:
+            - name: Checkout
+            uses: actions/checkout@v2.1.0
 
-    - name: Ruby cache
-      uses: actions/cache@v1.2.0
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+            - name: Ruby cache
+            uses: actions/cache@v1.2.0
+            with:
+            path: vendor/bundle
+            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-gems-
 
-    - name: Gradle cache
-      uses: actions/cache@v1.2.0
-      with:
-        path: /root/.gradle
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle
+            - name: Gradle cache
+            uses: actions/cache@v1.2.0
+            with:
+            path: /root/.gradle
+            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+            restore-keys: |
+                ${{ runner.os }}-gradle
 
-    - name: Bundle install
-      run: |
-        bundle config path vendor/bundle
-        bundle check || bundle install
+            - name: Bundle install
+            run: |
+                bundle config path vendor/bundle
+                bundle check || bundle install
 
-    - name: Fastlane
-      run: bundle exec fastlane my_lane
+            - name: Fastlane
+            run: bundle exec fastlane my_lane
