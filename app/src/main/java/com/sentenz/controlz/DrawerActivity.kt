@@ -259,6 +259,12 @@ class DrawerActivity : AppCompatActivity() {
     fun onOdometerCardClicked(view: View) {
     }
 
+    /**
+     * small helper method to reuse the logic to build the AccountHeader
+     * this will be used to replace the header of the drawer with a compact/normal header
+     *
+     * @param view
+     */
     fun onPaternosterCardClicked(view: View) {
         val intent = Intent(this@DrawerActivity, PaternosterActivity::class.java)
         startActivity(intent)
