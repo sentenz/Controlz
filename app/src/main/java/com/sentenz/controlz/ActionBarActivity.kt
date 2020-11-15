@@ -22,12 +22,12 @@ class ActionBarActivity : AppCompatActivity() {
         //supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_actionbar)
-        setTitle(R.string.drawer_item_action_bar_drawer)
+        setTitle(R.string.s_drawer_item_action_bar_drawer)
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog)
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog)
             )
             onDrawerItemClickListener = { v, drawerItem, position ->
                 if (drawerItem is Nameable) {

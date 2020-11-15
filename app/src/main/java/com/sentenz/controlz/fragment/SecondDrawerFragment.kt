@@ -27,7 +27,7 @@ class SecondDrawerFragment : Fragment() {
         // don't look at this layout it's just a listView to show how to handle the keyboard
         val view = inflater.inflate(R.layout.fragment_simple_sample, container, false)
         val textView = view.findViewById<TextView>(R.id.title)
-        textView.text = arguments!!.getString(KEY_TITLE)
+        textView.text = requireArguments().getString(KEY_TITLE)
         return view
     }
 
@@ -36,9 +36,9 @@ class SecondDrawerFragment : Fragment() {
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye)
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye)
             )
             setSavedInstance(savedInstanceState)
             setSelection(1)

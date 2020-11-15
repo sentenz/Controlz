@@ -57,7 +57,7 @@ class PaternosterActivity : AppCompatActivity() {
 
         /* Toolbar */
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.app_paternoster_title)
+        supportActionBar?.setTitle(R.string.s_title_paternoster)
         /* Set the back arrow in the toolbar */
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(false)
@@ -203,7 +203,7 @@ class PaternosterActivity : AppCompatActivity() {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, false)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-            putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speech_prompt))
+            putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.s_speech_prompt))
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
@@ -234,7 +234,7 @@ class PaternosterActivity : AppCompatActivity() {
                     val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
                     result?.let { it ->
                         val recognizedText = it[0].filter { it.isDigit() }
-                        val speechText = "${getString(R.string.tts_prepend)} $recognizedText ${getString(R.string.tts_append)}"
+                        val speechText = "${getString(R.string.s_tts_prepend)} $recognizedText ${getString(R.string.s_tts_append)}"
                         uiTextToSpeech(speechText)
                         textView.animateText(recognizedText)
                         Toast.makeText(this, recognizedText, Toast.LENGTH_LONG).show()

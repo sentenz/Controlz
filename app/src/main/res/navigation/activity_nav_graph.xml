@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/activity_nav_graph"
+    app:startDestination="@id/drawerActivity">
+
+    <activity
+        android:id="@+id/drawerActivity"
+        android:name="com.sentenz.controlz.ui.DrawerActivity"
+        android:label="DrawerActivity" >
+        <action
+            android:id="@+id/action_drawerActivity_to_controlActivity"
+            app:destination="@id/controlActivity" />
+        <action
+            android:id="@+id/action_drawerActivity_to_paternosterActivity"
+            app:destination="@id/paternosterActivity" />
+    </activity>
+    <activity
+        android:id="@+id/controlActivity"
+        android:name="com.sentenz.controlz.ControlActivity"
+        android:label="ControlActivity" />
+    <activity
+        android:id="@+id/paternosterActivity"
+        android:name="com.sentenz.controlz.PaternosterActivity"
+        android:label="PaternosterActivity" />
+</navigation>

@@ -39,14 +39,14 @@
                 android:id="@+id/et_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_message"/>
+                android:hint="@string/s_nfc_message_hint"/>
 
             <Button
                 android:id="@+id/btn_write"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:text="@string/message_write_tag"
+                android:text="@string/s_nfc_message_write_tag"
                 style="@style/Widget.AppCompat.Button.Colored"/>
 
             <Button
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:text="@string/message_read_tag"
+                android:text="@string/s_nfc_message_read_tag"
                 style="@style/Widget.AppCompat.Button.Colored"/>
 
         </LinearLayout >

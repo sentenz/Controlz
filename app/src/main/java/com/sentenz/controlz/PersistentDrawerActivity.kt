@@ -52,7 +52,7 @@ class PersistentDrawerActivity : AppCompatActivity() {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.drawer_item_persistent_compact_header)
+        supportActionBar?.setTitle(R.string.s_drawer_item_persistent_compact_header)
 
         // Create a few sample profile
         val profile = ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(R.drawable.profile)
@@ -80,14 +80,14 @@ class PersistentDrawerActivity : AppCompatActivity() {
             accountHeader = this@PersistentDrawerActivity.headerView
             customWidth = ViewGroup.LayoutParams.MATCH_PARENT
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
             )
         }
 

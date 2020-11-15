@@ -30,7 +30,7 @@ class FullscreenDrawerActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.setBackgroundColor(Color.BLACK)
         toolbar.background.alpha = 90
-        supportActionBar?.setTitle(R.string.drawer_item_fullscreen_drawer)
+        supportActionBar?.setTitle(R.string.s_drawer_item_fullscreen_drawer)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
@@ -38,27 +38,27 @@ class FullscreenDrawerActivity : AppCompatActivity() {
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
                     //add some more items to get a scrolling list
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye)
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn),
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye)
             )
             setSavedInstance(savedInstanceState)
         }

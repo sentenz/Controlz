@@ -47,7 +47,7 @@
             </menu>
         </item>
     </group>
-    <group android:id="@+id/md_menu_second_group">
+    <group android:id="@+id/s_menu_second_group">
         <item
             android:id="@+id/action_settings"
             android:orderInCategory="100"

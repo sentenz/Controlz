@@ -43,7 +43,7 @@ class EmbeddedDrawerActivity : AppCompatActivity() {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.drawer_item_embedded_drawer)
+        supportActionBar?.setTitle(R.string.s_drawer_item_embedded_drawer)
         //set the back arrow in the toolbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -90,14 +90,14 @@ class EmbeddedDrawerActivity : AppCompatActivity() {
         slider.apply {
             customWidth = ViewGroup.LayoutParams.MATCH_PARENT
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_compact_header).withIcon(GoogleMaterial.Icon.gmd_brightness_5).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_action_bar_drawer).withIcon(FontAwesome.Icon.faw_home).withBadge("22").withBadgeStyle(BadgeStyle(Color.RED, Color.RED)).withIdentifier(2),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_multi_drawer).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_non_translucent_status_drawer).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(4),
-                    PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withTag("Bullhorn"),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_compact_header).withIcon(GoogleMaterial.Icon.gmd_brightness_5).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_action_bar_drawer).withIcon(FontAwesome.Icon.faw_home).withBadge("22").withBadgeStyle(BadgeStyle(Color.RED, Color.RED)).withIdentifier(2),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_multi_drawer).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_non_translucent_status_drawer).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(4),
+                    PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.s_drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withTag("Bullhorn"),
                     DividerDrawerItem(),
                     SwitchDrawerItem().withName("Switch").withIcon(GoogleMaterial.Icon.gmd_pan_tool).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener),
                     ToggleDrawerItem().withName("Toggle").withIcon(GoogleMaterial.Icon.gmd_pan_tool).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)

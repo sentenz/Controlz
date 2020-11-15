@@ -1,4 +1,4 @@
-package com.sentenz.controlz
+package com.sentenz.controlz.ui
 
 import android.app.ActivityManager
 import android.content.Context
@@ -7,10 +7,10 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import com.afollestad.materialdialogs.MaterialDialog
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
@@ -27,9 +27,14 @@ import com.mikepenz.materialdrawer.model.interfaces.*
 import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.updateBadge
 import com.mikepenz.materialdrawer.widget.AccountHeaderView
+import com.sentenz.controlz.*
+import com.sentenz.controlz.data.DrawerViewModel
 import kotlinx.android.synthetic.main.activity_drawer.*
+import com.sentenz.controlz.databinding.ActivityDrawerBinding
 
-
+/**
+ * A V for [res.layout.activity_drawer].
+ */
 class DrawerActivity : AppCompatActivity() {
 
     companion object {
@@ -41,7 +46,8 @@ class DrawerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drawer)
+//        setContentView(R.layout.activity_drawer)
+        val binding : ActivityDrawerBinding = DataBindingUtil.setContentView(this, R.layout.activity_drawer)
 
         /* Handle Toolbar */
         setSupportActionBar(toolbar)
@@ -98,20 +104,20 @@ class DrawerActivity : AppCompatActivity() {
 
         slider.apply {
             addItems(
-                    PrimaryDrawerItem().apply { nameRes = R.string.app_control_title; descriptionRes = R.string.app_control_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1001 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.app_paternoster_title; descriptionRes = R.string.app_paternoster_desc; iconicsIcon = FontAwesome.Icon.faw_gamepad; isSelectable = false; identifier = 3 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_compact_header; descriptionRes = R.string.drawer_item_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_action_bar_drawer; descriptionRes = R.string.drawer_item_action_bar_drawer_desc; iconicsIcon = FontAwesome.Icon.faw_home; isSelectable = false; identifier = 2 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_advanced_drawer; descriptionRes = R.string.drawer_item_advanced_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_adb; isSelectable = false; identifier = 5 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_embedded_drawer; descriptionRes = R.string.drawer_item_embedded_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_full; isSelectable = false; identifier = 7 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_fullscreen_drawer; descriptionRes = R.string.drawer_item_fullscreen_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_label; isSelectable = false; identifier = 8 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_menu_drawer; descriptionRes = R.string.drawer_item_menu_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_filter_list; isSelectable = false; identifier = 10 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_mini_drawer; descriptionRes = R.string.drawer_item_mini_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_charging_full; isSelectable = false; identifier = 11 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_fragment_drawer; descriptionRes = R.string.drawer_item_fragment_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_disc_full; isSelectable = false; identifier = 12 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_collapsing_toolbar_drawer; descriptionRes = R.string.drawer_item_collapsing_toolbar_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_camera_rear; isSelectable = false; identifier = 13 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_persistent_compact_header; descriptionRes = R.string.drawer_item_persistent_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 14 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_crossfade_drawer_layout_drawer; descriptionRes = R.string.drawer_item_crossfade_drawer_layout_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; isSelectable = false; identifier = 15 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_navigation_drawer; descriptionRes = R.string.drawer_item_navigation_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_navigation; isSelectable = false; identifier = 1305 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_title_control; descriptionRes = R.string.s_content_control; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1001 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_title_paternoster; descriptionRes = R.string.s_content_paternoster; iconicsIcon = FontAwesome.Icon.faw_gamepad; isSelectable = false; identifier = 3 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_compact_header; descriptionRes = R.string.s_drawer_item_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_action_bar_drawer; descriptionRes = R.string.s_drawer_item_action_bar_drawer_desc; iconicsIcon = FontAwesome.Icon.faw_home; isSelectable = false; identifier = 2 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_advanced_drawer; descriptionRes = R.string.s_drawer_item_advanced_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_adb; isSelectable = false; identifier = 5 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_embedded_drawer; descriptionRes = R.string.s_drawer_item_embedded_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_full; isSelectable = false; identifier = 7 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_fullscreen_drawer; descriptionRes = R.string.s_drawer_item_fullscreen_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_label; isSelectable = false; identifier = 8 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_menu_drawer; descriptionRes = R.string.s_drawer_item_menu_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_filter_list; isSelectable = false; identifier = 10 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_mini_drawer; descriptionRes = R.string.s_drawer_item_mini_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_charging_full; isSelectable = false; identifier = 11 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_fragment_drawer; descriptionRes = R.string.s_drawer_item_fragment_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_disc_full; isSelectable = false; identifier = 12 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_collapsing_toolbar_drawer; descriptionRes = R.string.s_drawer_item_collapsing_toolbar_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_camera_rear; isSelectable = false; identifier = 13 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_persistent_compact_header; descriptionRes = R.string.s_drawer_item_persistent_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 14 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_crossfade_drawer_layout_drawer; descriptionRes = R.string.s_drawer_item_crossfade_drawer_layout_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; isSelectable = false; identifier = 15 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_navigation_drawer; descriptionRes = R.string.s_drawer_item_navigation_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_navigation; isSelectable = false; identifier = 1305 },
                     ExpandableBadgeDrawerItem().apply {
                         nameText = "Collapsable Badge"; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; identifier = 18; isSelectable = false; badge = StringHolder("100")
                         badgeStyle = BadgeStyle().apply { textColor = ColorHolder.fromColor(Color.WHITE); color = ColorHolder.fromColorRes(R.color.md_red_700) }
@@ -124,9 +130,9 @@ class DrawerActivity : AppCompatActivity() {
                             SecondaryDrawerItem().withName("CollapsableItem").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_filter_list).withIdentifier(2002),
                             SecondaryDrawerItem().withName("CollapsableItem 2").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_filter_list).withIdentifier(2003)
                     ),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github).withIdentifier(20).withSelectable(false),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withIdentifier(21).withTag("Bullhorn")
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github).withIdentifier(20).withSelectable(false),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withIdentifier(21).withTag("Bullhorn")
                     /*,
                     DividerDrawerItem ()
                     SwitchDrawerItem ().withName("Switch").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
@@ -178,8 +184,8 @@ class DrawerActivity : AppCompatActivity() {
         //slider.withStickyHeader(R.layout.header)
 
         //slider.addStickyDrawerItems(
-        //        SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
-        //        SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
+        //        SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
+        //        SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
         //)
 
         //only set the active selection or active profile if we do not recreate the activity
@@ -236,37 +242,5 @@ class DrawerActivity : AppCompatActivity() {
         /* Dedicated  device - Pause Button */
         val activityManager = applicationContext.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         activityManager.moveTaskToFront(taskId, 0)
-    }
-
-    /* CardView onClick callback */
-    fun onControlCardClicked(view: View) {
-        val intent = Intent(this@DrawerActivity, ControlActivity::class.java)
-        startActivity(intent)
-
-/*
-        MaterialDialog(this).show {
-            title(text = "Test")
-            message(text = "Do you want proceed? " + view.id.toString())
-            positiveButton(text = "Agree") { dialog ->
-            }
-            negativeButton(text = "Disagree") { dialog ->
-                // Do nothing
-            }
-        }
-*/
-    }
-
-    fun onOdometerCardClicked(view: View) {
-    }
-
-    /**
-     * small helper method to reuse the logic to build the AccountHeader
-     * this will be used to replace the header of the drawer with a compact/normal header
-     *
-     * @param view
-     */
-    fun onPaternosterCardClicked(view: View) {
-        val intent = Intent(this@DrawerActivity, PaternosterActivity::class.java)
-        startActivity(intent)
     }
 }

@@ -1,77 +1,77 @@
 <resources>
     <string name="app_name">Sentenz Controlz</string>
-    <string name="app_logo_name">SENTENZ</string>
+    <string name="s_app_logo_name">SENTENZ</string>
 
     <!-- Sample menu -->
     <string name="action_settings">Settings</string>
 
     <!-- Drawer Items -->
-    <string name="drawer_item_persistent_compact_header">PersistentHeader Drawer</string>
-    <string name="drawer_item_persistent_compact_header_desc">Smaller persistent account header</string>
-    <string name="drawer_item_compact_header">CompactHeader Drawer</string>
-    <string name="drawer_item_compact_header_desc">Smaller account header</string>
-    <string name="drawer_item_action_bar_drawer">ActionBar Drawer</string>
-    <string name="drawer_item_action_bar_drawer_desc">Shows how to use with an actionbar</string>
-    <string name="drawer_item_multi_drawer">Multi Drawer</string>
-    <string name="drawer_item_multi_drawer_desc">Left and Right side drawer</string>
-    <string name="drawer_item_non_translucent_status_drawer">NonTranslucentStatus Drawer</string>
-    <string name="drawer_item_non_translucent_status_drawer_desc">Drawer below statusBar</string>
-    <string name="drawer_item_advanced_drawer">Advanced Drawer</string>
-    <string name="drawer_item_advanced_drawer_desc">More advanced drawer features</string>
-    <string name="drawer_item_embedded_drawer">Embedded Drawer !!</string>
-    <string name="drawer_item_embedded_drawer_desc">Embed the drawer anywhere</string>
-    <string name="drawer_item_mini_drawer">MiniDrawer</string>
-    <string name="drawer_item_mini_drawer_desc">Always visible MiniDrawer</string>
-    <string name="drawer_item_fullscreen_drawer">FullScreen Drawer</string>
-    <string name="drawer_item_fullscreen_drawer_desc">Drawer in FullScreen activity</string>
-    <string name="drawer_item_custom_container_drawer_desc">Drawer in different view hirachy</string>
-    <string name="drawer_item_menu_drawer">Menu Drawer</string>
-    <string name="drawer_item_menu_drawer_desc">Drawer from menu.xml</string>
-    <string name="drawer_item_fragment_drawer">Fragment Drawer</string>
-    <string name="drawer_item_fragment_drawer_desc">Use drawer within fragments</string>
-    <string name="drawer_item_collapsing_toolbar_drawer">CollapsingToolbar Drawer</string>
-    <string name="drawer_item_collapsing_toolbar_drawer_desc">Uses a CollapsingToolbarLayout</string>
-    <string name="drawer_item_crossfade_drawer_layout_drawer">CrossfadeDrawerLayout</string>
-    <string name="drawer_item_crossfade_drawer_layout_drawer_desc">2-Step Drawer behavior</string>
-    <string name="drawer_item_navigation_drawer">Nav Controller Drawer</string>
-    <string name="drawer_item_navigation_drawer_desc">Drawer with a Nav Controller</string>
+    <string name="s_drawer_item_persistent_compact_header">PersistentHeader Drawer</string>
+    <string name="s_drawer_item_persistent_compact_header_desc">Smaller persistent account header</string>
+    <string name="s_drawer_item_compact_header">CompactHeader Drawer</string>
+    <string name="s_drawer_item_compact_header_desc">Smaller account header</string>
+    <string name="s_drawer_item_action_bar_drawer">ActionBar Drawer</string>
+    <string name="s_drawer_item_action_bar_drawer_desc">Shows how to use with an actionbar</string>
+    <string name="s_drawer_item_multi_drawer">Multi Drawer</string>
+    <string name="s_drawer_item_multi_drawer_desc">Left and Right side drawer</string>
+    <string name="s_drawer_item_non_translucent_status_drawer">NonTranslucentStatus Drawer</string>
+    <string name="s_drawer_item_non_translucent_status_drawer_desc">Drawer below statusBar</string>
+    <string name="s_drawer_item_advanced_drawer">Advanced Drawer</string>
+    <string name="s_drawer_item_advanced_drawer_desc">More advanced drawer features</string>
+    <string name="s_drawer_item_embedded_drawer">Embedded Drawer !!</string>
+    <string name="s_drawer_item_embedded_drawer_desc">Embed the drawer anywhere</string>
+    <string name="s_drawer_item_mini_drawer">MiniDrawer</string>
+    <string name="s_drawer_item_mini_drawer_desc">Always visible MiniDrawer</string>
+    <string name="s_drawer_item_fullscreen_drawer">FullScreen Drawer</string>
+    <string name="s_drawer_item_fullscreen_drawer_desc">Drawer in FullScreen activity</string>
+    <string name="s_drawer_item_custom_container_drawer_desc">Drawer in different view hirachy</string>
+    <string name="s_drawer_item_menu_drawer">Menu Drawer</string>
+    <string name="s_drawer_item_menu_drawer_desc">Drawer from menu.xml</string>
+    <string name="s_drawer_item_fragment_drawer">Fragment Drawer</string>
+    <string name="s_drawer_item_fragment_drawer_desc">Use drawer within fragments</string>
+    <string name="s_drawer_item_collapsing_toolbar_drawer">CollapsingToolbar Drawer</string>
+    <string name="s_drawer_item_collapsing_toolbar_drawer_desc">Uses a CollapsingToolbarLayout</string>
+    <string name="s_drawer_item_crossfade_drawer_layout_drawer">CrossfadeDrawerLayout</string>
+    <string name="s_drawer_item_crossfade_drawer_layout_drawer_desc">2-Step Drawer behavior</string>
+    <string name="s_drawer_item_navigation_drawer">Nav Controller Drawer</string>
+    <string name="s_drawer_item_navigation_drawer_desc">Drawer with a Nav Controller</string>
 
-    <string name="drawer_item_menu_drawer_item">Menu Drawer Item</string>
-    <string name="drawer_item_menu_drawer_item_desc">Sample menu item with overflow button</string>
+    <string name="s_drawer_item_menu_drawer_item">Menu Drawer Item</string>
+    <string name="s_drawer_item_menu_drawer_item_desc">Sample menu item with overflow button</string>
 
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_free_play">Free Play</string>
-    <string name="drawer_item_custom">Custom</string>
-    <string name="drawer_item_section_header">Section Header</string>
-    <string name="drawer_item_settings">Settings</string>
-    <string name="drawer_item_help">Help</string>
-    <string name="drawer_item_open_source">Open Source</string>
-    <string name="drawer_item_contact">Contact</string>
-    <string name="drawer_item_read_with_nfc">Read with NFC</string>
-    <string name="drawer_item_write_with_nfc">Write with NFC</string>
+    <string name="s_drawer_item_home">Home</string>
+    <string name="s_drawer_item_free_play">Free Play</string>
+    <string name="s_drawer_item_custom">Custom</string>
+    <string name="s_drawer_item_section_header">Section Header</string>
+    <string name="s_drawer_item_settings">Settings</string>
+    <string name="s_drawer_item_help">Help</string>
+    <string name="s_drawer_item_open_source">Open Source</string>
+    <string name="s_drawer_item_contact">Contact</string>
+    <string name="s_drawer_item_read_with_nfc">Read with NFC</string>
+    <string name="s_drawer_item_write_with_nfc">Write with NFC</string>
 
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
 
-    <string name="app_control_title">Control</string>
-    <string name="app_control_desc">Digital I/O control.</string>
-    <string name="app_odometer_title">Odometer</string>
-    <string name="app_odometer_desc">Digital encoder length measurement.</string>
-    <string name="app_paternoster_title">Paternoster</string>
-    <string name="app_paternoster_desc">RFID based technology warehouse.</string>
-    <string name="app_nfc_title">NFC Tool</string>
+    <string name="s_title_control">Control</string>
+    <string name="s_content_control">Digital I/O control.</string>
+    <string name="s_title_odometer">Odometer</string>
+    <string name="s_content_odometer">Digital encoder length measurement.</string>
+    <string name="s_title_paternoster">Paternoster</string>
+    <string name="s_content_paternoster">RFID based technology warehouse.</string>
+    <string name="s_title_nfc">NFC Tool</string>
 
-    <string name="message_write_error">Error Writing Message !</string>
-    <string name="message_write_success">Successfully written to Tag !</string>
-    <string name="message_write_progress">Writing to Tag..</string>
-    <string name="message_tag_detected">NFC Tag Detected !</string>
-    <string name="message_read_tag">Read from NFC Tag</string>
-    <string name="message_write_tag">Write to NFC Tag</string>
-    <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
-    <string name="message_read_error">Error Reading Message !</string>
-    <string name="message_read_success">Successfully reading to Tag !</string>
-    <string name="message_read_pending">Reading pending the Tag..</string>
-    <string name="nfc_image">Nfc Image</string>
-    <string name="hint_message">Message</string>
+    <string name="s_nfc_message_write_error">Error Writing Message!</string>
+    <string name="s_nfc_message_write_success">Successfully written to Tag!</string>
+    <string name="s_nfc_message_write_progress">Writing to Tag…</string>
+    <string name="s_nfc_message_write_tag">Write to NFC Tag</string>
+    <string name="s_nfc_message_read_tag">Read from NFC Tag</string>
+    <string name="s_nfc_message_read_error">Error Reading Message!</string>
+    <string name="s_nfc_message_read_success">Successfully reading to Tag!</string>
+    <string name="s_nfc_message_read_pending">Reading pending the Tag…</string>
+    <string name="s_nfc_message_tag">Tap the NFC Tag to your device!</string>
+    <string name="s_nfc_message_tag_detected">NFC Tag Detected!</string>
+    <string name="s_nfc_message_hint">Message</string>
+    <string name="s_nfc_image">Nfc Image</string>
 
     <!--https://github.com/glomadrian/Grav-->
     <string name="circle">
@@ -80,9 +80,9 @@ C985.464,783.455,780.213,988.707,527.023,988.707
 C273.832,988.707,68.5809,783.455,68.5809,530.265
 C68.5809,277.075,273.832,71.8233,527.023,71.8233 Z
     </string>
-    <string name="speech_prompt">Speak now</string>
-    <string name="tts_prepend">Eingabe</string>
-    <string name="tts_append">detektiert</string>
+    <string name="s_speech_prompt">Speak now</string>
+    <string name="s_tts_prepend">Input</string>
+    <string name="s_tts_append">detected</string>
     <integer name="circle_original_width">1100</integer>
     <integer name="circle_original_height">1100</integer>
 

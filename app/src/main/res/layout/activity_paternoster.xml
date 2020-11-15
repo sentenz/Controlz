@@ -57,7 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:loading_color="@color/md_grey_700"
+            app:loading_color="@color/c_grey_700"
             app:loading_width="10dp"
             tools:ignore="MissingClass,MissingConstraints" />
 
@@ -68,7 +68,7 @@
             android:background="#0000"
             android:gravity="center"
             android:text="|Z|E|T|"
-            android:textColor="@color/md_white_1000"
+            android:textColor="@color/c_white_1000"
             android:textSize="70sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,11 +90,11 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview"
-            app:mtf_backgroundColor="@color/md_grey_500"
+            app:mtf_backgroundColor="@color/c_grey_500"
             app:mtf_cardCollapsedHeight="4dp"
             app:mtf_hasFocus="false"
             app:mtf_image="@drawable/ic_baseline_credit_card_24"
-            app:mtf_labelColor="@color/md_grey_100"
+            app:mtf_labelColor="@color/c_grey_100"
             app:mtf_openKeyboardOnFocus="true"
             tools:ignore="MissingConstraints">
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:hint="ID"
                 android:inputType="number"
-                android:textColor="@color/md_white_1000"
+                android:textColor="@color/c_white_1000"
                 android:textSize="22sp"
                 tools:ignore="MissingConstraints" />
 
@@ -145,8 +145,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:pause_bg="@color/colorPrimary"
-            app:play_bg="@color/md_grey_700"
-            app:fill_color="@color/md_white_1000"
+            app:play_bg="@color/c_grey_700"
+            app:fill_color="@color/c_white_1000"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@ class ControlActivity : AppCompatActivity() {
 
         /* Toolbar */
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.app_control_title)
+        supportActionBar?.setTitle(R.string.s_title_control)
         /* Set the back arrow in the toolbar */
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(false)

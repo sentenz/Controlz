@@ -31,7 +31,7 @@ class CrossfadeDrawerLayoutActvitiy : AppCompatActivity() {
         //set the back arrow in the toolbars
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setTitle(R.string.drawer_item_crossfade_drawer_layout_drawer)
+        supportActionBar?.setTitle(R.string.s_drawer_item_crossfade_drawer_layout_drawer)
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
 
@@ -57,14 +57,14 @@ class CrossfadeDrawerLayoutActvitiy : AppCompatActivity() {
 
         crossFadeLargeView.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(5),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(5),
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
             )
             onDrawerItemClickListener = { v, drawerItem, position ->
                 if (drawerItem is Nameable) {

@@ -45,7 +45,7 @@ class AdvancedActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setTitle(R.string.drawer_item_advanced_drawer)
+        supportActionBar?.setTitle(R.string.s_drawer_item_advanced_drawer)
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
 
@@ -61,26 +61,26 @@ class AdvancedActivity : AppCompatActivity() {
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home),
                     //here we use a customPrimaryDrawerItem we defined in our sample app
                     //this custom DrawerItem extends the PrimaryDrawerItem so it just overwrites some methods
-                    OverflowMenuDrawerItem().withName(R.string.drawer_item_menu_drawer_item).withDescription(R.string.drawer_item_menu_drawer_item_desc).withMenu(R.menu.fragment_menu).withOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                    OverflowMenuDrawerItem().withName(R.string.s_drawer_item_menu_drawer_item).withDescription(R.string.s_drawer_item_menu_drawer_item_desc).withMenu(R.menu.fragment_menu).withOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                         Toast.makeText(this@AdvancedActivity, item.title, Toast.LENGTH_SHORT).show()
                         false
                     }).withIcon(GoogleMaterial.Icon.gmd_filter_center_focus),
-                    CustomPrimaryDrawerItem().withBackgroundRes(R.color.accent).withName(R.string.drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.drawer_item_custom).withDescription("This is a description").withIcon(FontAwesome.Icon.faw_eye),
-                    CustomUrlPrimaryDrawerItem().withName(R.string.drawer_item_fragment_drawer).withDescription(R.string.drawer_item_fragment_drawer_desc).withIcon("https://avatars3.githubusercontent.com/u/1476232?v=3&s=460"),
-                    SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cart_plus),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_database).withEnabled(false),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIconTintingEnabled(true).withIcon(IconicsDrawable(this@AdvancedActivity, GoogleMaterial.Icon.gmd_add).apply { actionBar(); paddingDp = 5 }).withTag("Bullhorn"),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false)
+                    CustomPrimaryDrawerItem().withBackgroundRes(R.color.accent).withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withDescription("This is a description").withIcon(FontAwesome.Icon.faw_eye),
+                    CustomUrlPrimaryDrawerItem().withName(R.string.s_drawer_item_fragment_drawer).withDescription(R.string.s_drawer_item_fragment_drawer_desc).withIcon("https://avatars3.githubusercontent.com/u/1476232?v=3&s=460"),
+                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cart_plus),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_database).withEnabled(false),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIconTintingEnabled(true).withIcon(IconicsDrawable(this@AdvancedActivity, GoogleMaterial.Icon.gmd_add).apply { actionBar(); paddingDp = 5 }).withTag("Bullhorn"),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false)
             )
             addStickyDrawerItems(
-                    SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
-                    SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
+                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
             )
             onDrawerItemClickListener = { v, drawerItem, position ->
                 if (drawerItem is Nameable) {

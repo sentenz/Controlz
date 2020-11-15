@@ -54,10 +54,10 @@ class NfcReaderFragment : DialogFragment() {
             mTvMessage!!.text = message
         } catch (e: IOException) {
             e.printStackTrace()
-            mTvMessage!!.text = getString(R.string.message_read_error)
+            mTvMessage!!.text = getString(R.string.s_nfc_message_read_error)
         } catch (e: FormatException) {
             e.printStackTrace()
-            mTvMessage!!.text = getString(R.string.message_read_error)
+            mTvMessage!!.text = getString(R.string.s_nfc_message_read_error)
         }
     }
 

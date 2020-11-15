@@ -49,20 +49,20 @@ class NfcWriterFragment : DialogFragment() {
     }
 
     private fun writeToNfc(ndef: Ndef?, message: String) {
-        mTvMessage?.text = getString(R.string.message_write_progress)
+        mTvMessage?.text = getString(R.string.s_nfc_message_write_progress)
         if (ndef != null) {
             try {
                 ndef.connect()
                 val mimeRecord = NdefRecord.createMime("text/plain", message.toByteArray(Charset.forName("US-ASCII")))
                 ndef.writeNdefMessage(NdefMessage(mimeRecord))
                 ndef.close()
-                mTvMessage!!.text = getString(R.string.message_write_success)
+                mTvMessage!!.text = getString(R.string.s_nfc_message_write_success)
             } catch (e: IOException) {
                 e.printStackTrace()
-                mTvMessage!!.text = getString(R.string.message_write_error)
+                mTvMessage!!.text = getString(R.string.s_nfc_message_write_error)
             } catch (e: FormatException) {
                 e.printStackTrace()
-                mTvMessage!!.text = getString(R.string.message_write_error)
+                mTvMessage!!.text = getString(R.string.s_nfc_message_write_error)
             }
         }
     }

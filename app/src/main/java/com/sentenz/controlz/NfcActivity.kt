@@ -39,7 +39,7 @@ class NfcActivity : AppCompatActivity() , Listener {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.app_nfc_title)
+        supportActionBar?.setTitle(R.string.s_title_nfc)
         // Set the back arrow in the toolbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(false)
@@ -113,7 +113,7 @@ class NfcActivity : AppCompatActivity() , Listener {
         val tag = intent.getParcelableExtra<Parcelable>(NfcAdapter.EXTRA_TAG)
         Log.d(TAG, "onNewIntent: " + intent.action)
         if (tag != null) {
-            Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.s_nfc_message_tag_detected), Toast.LENGTH_SHORT).show()
             val ndef = Ndef.get(tag as Tag?)
             if (isDialogDisplayed) {
                 if (isWrite) {
