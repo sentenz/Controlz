@@ -1,4 +1,4 @@
-package com.sentenz.controlz.ui
+package com.sentenz.controlz.view
 
 import android.app.ActivityManager
 import android.content.Context
@@ -8,9 +8,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
@@ -28,14 +26,19 @@ import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.updateBadge
 import com.mikepenz.materialdrawer.widget.AccountHeaderView
 import com.sentenz.controlz.*
-import com.sentenz.controlz.data.DrawerViewModel
+import com.sentenz.controlz.base.BaseActivity
+import com.sentenz.controlz.base.BaseViewModel
+import com.sentenz.controlz.vm.DrawerViewModel
 import kotlinx.android.synthetic.main.activity_drawer.*
 import com.sentenz.controlz.databinding.ActivityDrawerBinding
 
 /**
- * A V for [res.layout.activity_drawer].
+ * A V for [res.layout.activity_drawer]
+ * A binding to VM [com.sentenz.controlz.vm.DrawerViewModel]
+ *
+ * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
  */
-class DrawerActivity : AppCompatActivity() {
+class DrawerActivity : BaseActivity() {
 
     companion object {
         private const val PROFILE_SETTING = 100000
@@ -44,10 +47,20 @@ class DrawerActivity : AppCompatActivity() {
     private lateinit var headerView: AccountHeaderView
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
+    /* MVVM */
+    private lateinit var viewModel: DrawerViewModel
+    override val baseViewModel: BaseViewModel?
+        get() = viewModel
+    private lateinit var binding: ActivityDrawerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_drawer)
-        val binding : ActivityDrawerBinding = DataBindingUtil.setContentView(this, R.layout.activity_drawer)
+
+        /* MVVM */
+        binding = DataBindingUtil.setContentView(this@DrawerActivity, R.layout.activity_drawer)
+        initViewModelAndBinding {
+            // Do other stuff if needed
+        }
 
         /* Handle Toolbar */
         setSupportActionBar(toolbar)
@@ -56,6 +69,35 @@ class DrawerActivity : AppCompatActivity() {
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
 
+        /* Material navigation drawer */
+        uiMaterialDrawer(savedInstanceState)
+
+    }
+
+    /**
+     * MVVM - Do multiple things:
+     *  - Initialize the current [viewModel] ViewModel
+     *  - Do the binding
+     *  - Initialize the [viewModel] observers
+     */
+    private fun initViewModelAndBinding( after: () -> Unit ) {
+        viewModel = provideViewModel()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        binding.executePendingBindings()
+        initObservers()
+        after()
+    }
+
+    /**
+     * MVVM - Should be done after [baseViewModel] instantiation
+     */
+    override fun initObservers() {
+        // Important : don't forget to call the super method
+        super.initObservers()
+    }
+
+    private fun uiMaterialDrawer(savedInstanceState: Bundle?) {
         /* Create a few sample profile
          * NOTE you have to define the loader logic too. See the CustomApplication for more details */
         val profile = ProfileDrawerItem().apply { nameText = "Mike Penz"; descriptionText = "mikepenz@gmail.com"; iconUrl = "https://avatars3.githubusercontent.com/u/1476232?v=3&s=460"; identifier = 100 }
@@ -200,7 +242,7 @@ class DrawerActivity : AppCompatActivity() {
         slider.updateBadge(4, StringHolder(10.toString() + ""))
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
+        override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         actionBarDrawerToggle.onConfigurationChanged(newConfig)
     }

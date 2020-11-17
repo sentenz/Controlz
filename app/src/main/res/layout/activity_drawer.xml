@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,14 +14,14 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <data>
         <variable
             name="viewModel"
-            type="com.sentenz.controlz.data.DrawerViewModel"/>
+            type="com.sentenz.controlz.vm.DrawerViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,6 +75,16 @@
                             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
                     </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+<!--
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/activity_nav_host_graph"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:defaultNavHost="true"
+                        app:navGraph="@navigation/activity_nav_graph" />
+-->
 
                 </com.google.android.material.appbar.AppBarLayout>
 
@@ -217,14 +228,6 @@
                 android:fitsSystemWindows="true" />
 
         </androidx.drawerlayout.widget.DrawerLayout>
-
-        <fragment
-            android:id="@+id/nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/activity_nav_graph" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

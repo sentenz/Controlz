@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: "androidx.navigation.safeargs.kotlin"
-apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 //apply plugin: 'de.gliderpilot.semantic-release'
 
 // wrap with try and catch so the build is working even if the signing stuff is missing
@@ -101,7 +101,6 @@ android {
 }
 
 dependencies {
-
     implementation project(':library')
     implementation project(':library-iconics')
     implementation project(':library-nav')

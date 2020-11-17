@@ -1,23 +1,12 @@
-package com.sentenz.controlz.data
+package com.sentenz.controlz.vm
 
-import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.sentenz.controlz.ControlActivity
-import com.sentenz.controlz.PaternosterActivity
-import com.afollestad.materialdialogs.MaterialDialog
 import com.sentenz.controlz.base.BaseViewModel
 import com.sentenz.controlz.R
 
 /**
- * A VM for [com.sentenz.controlz.ui.DrawerActivity].
+ * A VM for [com.sentenz.controlz.view.DrawerActivity]
+ *
+ * MVVM usage from: https://gist.github.com/BapNesS/b9ec14b9f55131f2d172078f514d7e72
  */
 class DrawerViewModel : BaseViewModel() {
 /*
@@ -45,10 +34,9 @@ class DrawerViewModel : BaseViewModel() {
 
     /* CardView onClick callback */
     fun onControlClicked() {
+        setMessage(R.string.s_title_control)
+//        navigateTo(R.id.controlActivity)
 /*
-        navigateTo(
-                navigationTargetId = R.id.action_drawerActivity_to_controlActivity,
-        )
 
         val intent = Intent(this, ControlActivity::class.java)
         startActivity(intent)
@@ -72,4 +60,9 @@ class DrawerViewModel : BaseViewModel() {
 //        val intent = Intent(this, PaternosterActivity::class.java)
 //        startActivity(intent)
     }
+
+//    private fun navigateTo(destination: Int) {
+//        findNavController(destination)
+//    }
+
 }

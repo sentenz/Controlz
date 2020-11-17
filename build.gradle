@@ -1,7 +1,7 @@
 buildscript {
     ext {
         release = [
-                versionName: "1.0.0",
+                versionName: "0.3.0",
                 versionCode: 100
         ]
 
@@ -17,12 +17,12 @@ buildscript {
                 annotation       : '1.1.0',
                 recyclerView     : '1.1.0',
                 core             : '1.1.0',
-                material         : '1.2.0',
+                material         : '1.2.1',
                 appcompat        : '1.2.0',
                 drawerlayout     : '1.1.0-beta01',
-                constraintLayout : '2.0.0-rc1',
+                constraintLayout : '2.0.4',
                 cardview         : '1.0.0',
-                kotlin           : "1.4.0",
+                kotlin           : "1.4.10",
                 fastadapter      : "5.0.2",
                 iconics          : "5.0.2",
                 aboutLibs        : "8.1.2",
@@ -43,9 +43,9 @@ buildscript {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
         classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:${versions.aboutLibs}"
         classpath 'de.gliderpilot.gradle.semantic-release:gradle-semantic-release-plugin:1.0.0'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
     }
 }
 

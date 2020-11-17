@@ -1,4 +1,4 @@
-package com.sentenz.controlz
+package com.sentenz.controlz.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +10,25 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.sentenz.controlz.NfcActivity
+import com.sentenz.controlz.R
+import com.sentenz.controlz.base.BaseActivity
+import com.sentenz.controlz.base.BaseViewModel
+import com.sentenz.controlz.databinding.ActivityControlBinding
+import com.sentenz.controlz.databinding.ActivityDrawerBinding
+import com.sentenz.controlz.vm.ControlViewModel
+import com.sentenz.controlz.vm.DrawerViewModel
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_multi_sample.toolbar
 
-class ControlActivity : AppCompatActivity() {
+/**
+ * A V for [res.layout.activity_control]
+ * A binding to VM [com.sentenz.controlz.vm.ControlViewModel]
+ *
+ * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
+ */
+class ControlActivity : BaseActivity() {
 
     companion object {
         init {
@@ -25,11 +40,20 @@ class ControlActivity : AppCompatActivity() {
     var opcua_connected : Boolean = false
     lateinit var handler: Handler
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        //supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+    /* MVVM */
+    private lateinit var viewModel: ControlViewModel
+    override val baseViewModel: BaseViewModel?
+        get() = viewModel
+    private lateinit var binding: ActivityControlBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_control)
+
+        /* MVVM */
+        binding = DataBindingUtil.setContentView(this@ControlActivity, R.layout.activity_control)
+        initViewModelAndBinding {
+            // Do other stuff if needed
+        }
 
         /* Toolbar */
         setSupportActionBar(toolbar)
@@ -43,6 +67,29 @@ class ControlActivity : AppCompatActivity() {
 
         /* Update handler */
         handler = Handler(Looper.getMainLooper())
+    }
+
+    /**
+     * MVVM - Do multiple things:
+     *  - Initialize the current [viewModel] ViewModel
+     *  - Do the binding
+     *  - Initialize the [viewModel] observers
+     */
+    private fun initViewModelAndBinding( after: () -> Unit ) {
+        viewModel = provideViewModel()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        binding.executePendingBindings()
+        initObservers()
+        after()
+    }
+
+    /**
+     * MVVM - Should be done after [baseViewModel] instantiation
+     */
+    override fun initObservers() {
+        // Important : don't forget to call the super method
+        super.initObservers()
     }
 
     private fun uiComposition() {
@@ -70,7 +117,6 @@ class ControlActivity : AppCompatActivity() {
         }
 */
         dpad.onDirectionPressListener = { direction, action ->
-
             if (direction?.name.equals("UP")) {
                 when (action) {
                     MotionEvent.ACTION_UP -> jniOpcUaTaskIdle()
@@ -207,8 +253,10 @@ class ControlActivity : AppCompatActivity() {
         Log.i("jniMessageCallback", message)
     }
 
-    /* A JNI native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application. */
+    /**
+     *  A JNI native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
     external fun jniOpcUaConnect()
     external fun jniOpcUaCleanup()
     external fun jniOpcUaTaskUp() : Int

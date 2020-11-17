@@ -606,14 +606,15 @@ opcua_client_idle(const int value = 0) {
     return  retval;
 }
 
-/** ControlActivity
+/**
+ * ControlActivity
  * See the corresponding Java source file located at:
  * app/src/main/java/com/sentenz/ControlActivity.java
  */
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaConnect( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaConnect( JNIEnv * env, jobject thiz ) {
     /* Java method call */
     env->GetJavaVM(&g_jvm);
     g_obj = env->NewGlobalRef(thiz);
@@ -624,13 +625,13 @@ Java_com_sentenz_controlz_ControlActivity_jniOpcUaConnect( JNIEnv * env, jobject
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaCleanup( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaCleanup( JNIEnv * env, jobject thiz ) {
     opcua_client_cleanup();
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaTaskUp( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskUp( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_up();
 
     /* JVM method call */
@@ -645,21 +646,21 @@ Java_com_sentenz_controlz_ControlActivity_jniOpcUaTaskUp( JNIEnv * env, jobject 
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaTaskDown( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskDown( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_down();
     return retval;
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaTaskIdle( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskIdle( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_idle();
     return retval;
 }
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_sentenz_controlz_ControlActivity_jniOpcUaMessage(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaMessage(JNIEnv *env, jobject thiz) {
     //std::string t_string = opcua_read_ndef_message();
 
     auto future = std::async(std::launch::async, opcua_read_ndef_message);
@@ -668,7 +669,8 @@ Java_com_sentenz_controlz_ControlActivity_jniOpcUaMessage(JNIEnv *env, jobject t
     return env->NewStringUTF(t_string.c_str());
 }
 
-/** PaternosterActivity
+/**
+ * PaternosterActivity
  * See the corresponding Java source file located at:
  * app/src/main/java/com/sentenz/PaternosterActivity.java
  */
