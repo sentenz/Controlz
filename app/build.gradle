@@ -128,13 +128,28 @@ dependencies {
 //    implementation "com.android.support:support-annotations:28.0.0"
 //    annotationProcessor 'com.android.support:support-annotations:28.0.0'
 
+    /**
+     * Kotlin
+     */
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+
+    /**
+     * Navigation graph
+     */
+    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+    implementation 'androidx.core:core-ktx:1.3.2'
+//    implementation "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
+
+    /**
+     * Library: MaterialDrawer
+     */
     // the sample uses more advanced functions of the fastadapter
     // https://github.com/mikepenz/FastAdapter/
     implementation "com.mikepenz:fastadapter-extensions-utils:${versions.fastadapter}"
     // used to generate the Open Source section
     // https://github.com/mikepenz/AboutLibraries
     implementation "com.mikepenz:aboutlibraries:${versions.aboutLibs}"
-
     // used to provide different itemAnimators for the RecyclerView
     // https://github.com/mikepenz/ItemAnimators
     implementation 'com.mikepenz:itemanimators:1.1.0'
@@ -147,23 +162,19 @@ dependencies {
     // https://github.com/mikepenz/CrossfadeDrawerLayout
     implementation('com.mikepenz:crossfadedrawerlayout:1.1.0')
 
-    // icon fonts used inside the sample
-    // https://github.com/mikepenz/Android-Iconics
+    /**
+     * Library: MaterialDrawer
+     * Icon and fonts used inside the sample
+     * Clone from https://github.com/mikepenz/Android-Iconics
+     */
     implementation 'com.mikepenz:google-material-typeface:3.0.1.4.original-kotlin@aar'
     implementation 'com.mikepenz:fontawesome-typeface:5.3.1.2-kotlin@aar'
     implementation 'com.mikepenz:octicons-typeface:3.2.0.6-kotlin@aar'
 
-    // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-
-    // navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
-    implementation "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
-//    implementation "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
-    implementation 'androidx.core:core-ktx:1.3.2'
-
-    // lib material-dialogs
-    // https://github.com/afollestad/material-dialogs
+    /**
+     * library: material-dialogs
+     * Clone from https://github.com/afollestad/material-dialogs
+     */
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
     implementation 'com.afollestad.material-dialogs:files:3.3.0'
@@ -172,44 +183,60 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:bottomsheets:3.3.0'
     implementation 'com.afollestad.material-dialogs:lifecycle:3.3.0'
 
-    // lib DPadView
-    // https://github.com/shripal17/DPadView
+    /**
+     * library: DPadView
+     * Clone from https://github.com/shripal17/DPadView
+     */
     implementation 'com.github.shripal17:DPadView:1.0.3'
 
-    // lib HTextView
-    // https://github.com/hanks-zyh/HTextView
-    implementation "com.hanks:htextview-base:${versions.htextview}"        // base library
-    implementation "com.hanks:htextview-fade:${versions.htextview}"        // optional
-    implementation "com.hanks:htextview-line:${versions.htextview}"        // optional
-    implementation "com.hanks:htextview-scale:${versions.htextview}"       // optional
-    implementation "com.hanks:htextview-evaporate:${versions.htextview}"   // optional
+    /**
+     * library: HTextView
+     * Clone from https://github.com/hanks-zyh/HTextView
+     */
+    implementation "com.hanks:htextview-base:${versions.htextview}"  // base library
+    implementation "com.hanks:htextview-fade:${versions.htextview}"  // optional
+    implementation "com.hanks:htextview-line:${versions.htextview}"  // optional
+    implementation "com.hanks:htextview-scale:${versions.htextview}"  // optional
+    implementation "com.hanks:htextview-evaporate:${versions.htextview}"  // optional
 
-    // lib MaterialTextField
-    // https://github.com/florent37/MaterialTextField
+    /**
+     * library: MaterialTextField
+     * Clone from https://github.com/florent37/MaterialTextField
+     */
     implementation 'com.github.florent37:materialtextfield:1.0.7'
 
-    // lib MaterialTextField
-    // https://github.com/recruit-lifestyle/PlayPauseButton
+    /**
+     * library: PlayPauseButton
+     * Clone from https://github.com/recruit-lifestyle/PlayPauseButton
+     */
     implementation 'com.github.recruit-lifestyle:PlayPauseButton:1.0'
 
-    // lib Grav
-    // https://github.com/glomadrian/Grav
+    /**
+     * library: Grav
+     * Clone from https://github.com/glomadrian/Grav
+     */
     implementation 'com.github.glomadrian:Grav:1.1'
 
-    // lib Loading
-    // https://github.com/yankai-victor/Loading
+    /**
+     * library: Loading
+     * Clone from https://github.com/yankai-victor/Loading
+     */
     implementation 'com.victor:lib:1.0.4'
 
-    // lib playpauseview
-    // https://github.com/OHoussein/android-material-play-pause-view
+    /**
+     * library: playpauseview
+     * Clone from https://github.com/OHoussein/android-material-play-pause-view
+     */
     implementation 'com.github.ohoussein.playpauseview:playpauseview:1.0.2'
 
-    // Generate C/C++ Code
-    // https://github.com/android/ndk-samples/tree/master/hello-libs
-    // uncomment out this one to generate lib binaries,
-    // and also uncommented out the one in settings.gradle
-    // after lib is generated, just comment them out again
-    api project(':gen-libs')
+    /**
+     * Generate C/C++ Code
+     * Inspired by https://github.com/android/ndk-samples/tree/master/hello-libs
+     *
+     * comment them out to create lib binaries, and also comment out the ones in [settings.gradle],
+     * after the lib is created, just comment them out again
+     */
+    //api project(':gen-libs')
 }
 
 configurations.all {
