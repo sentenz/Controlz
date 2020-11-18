@@ -42,8 +42,8 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-      - name: Build Debug
-        run: ./gradlew clean app:assembleDebug
+#      - name: Build Debug
+#        run: ./gradlew clean app:assembleDebug
 
       - name: Run Lint
         if: github.event_name  == 'pull_request'
