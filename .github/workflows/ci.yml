@@ -1,6 +1,12 @@
 # Thanks to https://github.com/coil-kt/coil/blob/master/.github/workflows/ci.yml
 name: CI
 
+#on:
+#  push:
+#    tags:
+#      - '*'
+#  pull_request:
+
 on:
     push:
         branches:
