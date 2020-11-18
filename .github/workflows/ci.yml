@@ -2,10 +2,11 @@
 name: CI
 
 on:
-  push:
-    tags:
-      - '*'
-  pull_request:
+    push:
+        branches:
+            - master
+            - dev
+    pull_request:
 
 jobs:
   build:
