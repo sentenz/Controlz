@@ -3,12 +3,12 @@ name: CI
 
 #on:
 #  push:
-#    tags:
-#      - '*'
 #  pull_request:
 
 on:
     push:
+        tags:
+            - '*'
         branches:
             - master
             - dev
@@ -21,8 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 100
+        with:
+          fetch-depth: 100
 
       - name: Validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
