@@ -3,6 +3,8 @@ name: CI
 
 #on:
 #  push:
+#    tags:
+#      - '*'
 #  pull_request:
 
 on:
@@ -12,6 +14,7 @@ on:
         branches:
             - master
             - dev
+            - feat
     pull_request:
 
 jobs:
@@ -22,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 100
+          fetch-depth: 0
 
       - name: Validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
@@ -42,14 +45,11 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-#      - name: Build JVM
-#        run: ./gradlew clean build
-        
 #      - name: Build Debug
 #        run: ./gradlew clean app:assembleDebug
-        
-      - name: Build Debug JNI
-        run: ./gradlew clean app:externalNativeBuildRelease
+
+      - name: Build
+        run: ./gradlew build
 
       - name: Run Lint
         if: github.event_name  == 'pull_request'
