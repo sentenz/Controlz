@@ -42,11 +42,14 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-#      - name: Build
+#      - name: Build JVM
 #        run: ./gradlew clean build
         
-      - name: Build Debug
-        run: ./gradlew clean app:assembleDebug
+#      - name: Build Debug
+#        run: ./gradlew clean app:assembleDebug
+        
+      - name: Build Debug JNI
+        run: ./gradlew clean app:externalNativeBuildRelease
 
       - name: Run Lint
         if: github.event_name  == 'pull_request'
