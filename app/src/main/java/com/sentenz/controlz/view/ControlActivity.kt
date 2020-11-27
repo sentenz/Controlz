@@ -175,17 +175,17 @@ class ControlActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        /* OPC UA */
+        /** OPC UA */
         jniOpcuaConnect()
-        /* Update handler */
+        /** Update handler */
         handler.post(opcuaUpdateTask)
     }
 
     override fun onPause() {
         super.onPause()
-        /* Update handler */
+        /** Update handler */
         handler.removeCallbacks(opcuaUpdateTask)
-        /* OPC UA */
+        /** OPC UA */
         jniOpcuaCleanup()
     }
 

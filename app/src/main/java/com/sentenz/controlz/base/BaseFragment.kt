@@ -1,4 +1,3 @@
-/*
 package com.sentenz.controlz.base
 
 import android.os.Bundle
@@ -10,6 +9,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.sentenz.controlz.BR
+import com.sentenz.controlz.utils.extension.navigateTo
+import com.sentenz.controlz.utils.extension.snack
 import kotlin.reflect.KClass
 import kotlin.reflect.KDeclarationContainer
 
@@ -47,11 +48,10 @@ abstract class BaseFragment<Binding : ViewDataBinding, VM : BaseViewModel> : Fra
             event.getContentIfNotHandled()?.let {
 
                 when(it) {
-//                    is NavigateTo -> navigateTo(it)
+                    is ShowSnackbar -> (activity?.currentFocus ?: binding.root).snack(it)
+                    is NavigateTo -> navigateTo(it)
                 }
             }
         })
     }
 }
-
-*/

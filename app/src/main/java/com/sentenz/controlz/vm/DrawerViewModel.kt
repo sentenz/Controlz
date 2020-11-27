@@ -12,7 +12,7 @@ import com.sentenz.controlz.view.ControlActivity
 
 
 /**
- * A VM for [com.sentenz.controlz.view.DrawerActivity]
+ * A ViewModel for [com.sentenz.controlz.view.DrawerActivity]
  *
  * MVVM usage from: https://gist.github.com/BapNesS/b9ec14b9f55131f2d172078f514d7e72
  */
