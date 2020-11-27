@@ -1,7 +1,15 @@
 package com.sentenz.controlz.vm
 
-import com.sentenz.controlz.base.BaseViewModel
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import android.view.View
+import android.widget.Toast
+import com.sentenz.controlz.PaternosterActivity
 import com.sentenz.controlz.R
+import com.sentenz.controlz.base.BaseViewModel
+import com.sentenz.controlz.view.ControlActivity
+
 
 /**
  * A VM for [com.sentenz.controlz.view.DrawerActivity]
@@ -9,7 +17,39 @@ import com.sentenz.controlz.R
  * MVVM usage from: https://gist.github.com/BapNesS/b9ec14b9f55131f2d172078f514d7e72
  */
 class DrawerViewModel : BaseViewModel() {
+
+    /**
+     * Callbacks
+     */
+
+    fun onControlClicked(view: View) {
+        val context: Context = view.context
+        val intent = Intent(context, ControlActivity::class.java)
+        context.startActivity(intent)
 /*
+        MaterialDialog(this).show {
+            title(text = "Test")
+            message(text = "Do you want proceed? " + view.id.toString())
+            positiveButton(text = "Agree") { dialog ->
+            }
+            negativeButton(text = "Disagree") { dialog ->
+                // Do nothing
+            }
+        }
+*/
+    }
+
+    fun onPaternosterClicked(view: View) {
+        val context: Context = view.context
+        val intent = Intent(context, PaternosterActivity::class.java)
+        context.startActivity(intent)
+    }
+
+    fun onOdometerClicked(view: View) {
+        setMessage(R.string.s_title_odometer)
+    }
+
+    /*
     private val _name = MutableLiveData("Ada")
     private val _lastName = MutableLiveData("Lovelace")
     private val _likes =  MutableLiveData(0)
@@ -31,38 +71,4 @@ class DrawerViewModel : BaseViewModel() {
         _likes.value = (_likes.value ?: 0) + 1
     }
 */
-
-    /* CardView onClick callback */
-    fun onControlClicked() {
-        setMessage(R.string.s_title_control)
-//        navigateTo(R.id.controlActivity)
-/*
-
-        val intent = Intent(this, ControlActivity::class.java)
-        startActivity(intent)
-
-        MaterialDialog(this).show {
-            title(text = "Test")
-            message(text = "Do you want proceed? " + view.id.toString())
-            positiveButton(text = "Agree") { dialog ->
-            }
-            negativeButton(text = "Disagree") { dialog ->
-                // Do nothing
-            }
-        }
-*/
-    }
-
-    fun onOdometerClicked() {
-    }
-
-    fun onPaternosterClicked() {
-//        val intent = Intent(this, PaternosterActivity::class.java)
-//        startActivity(intent)
-    }
-
-//    private fun navigateTo(destination: Int) {
-//        findNavController(destination)
-//    }
-
 }

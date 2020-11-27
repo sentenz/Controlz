@@ -97,10 +97,10 @@ class PaternosterActivity : AppCompatActivity() {
                 if (editText.text.toString().trim().isNotEmpty()) {
                     id = editText.text.toString().toInt()
                 }
-                jniOpcUaTaskUp(id)
+                jniOpcuaTaskUp(id)
             } else {
                 rotateLoading.stop()
-                jniOpcUaTaskIdle()
+                jniOpcuaTaskIdle()
             }
         }
     }
@@ -163,7 +163,7 @@ class PaternosterActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         /* OPC UA */
-        jniOpcUaConnect()
+        jniOpcuaConnect()
         handler.post(opcuaUpdateTask)
         /* STT */
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
@@ -176,7 +176,7 @@ class PaternosterActivity : AppCompatActivity() {
         /* JNI */
         handler.removeCallbacks(opcuaUpdateTask)
         /* OPC UA */
-        jniOpcUaCleanup()
+        jniOpcuaCleanup()
         super.onPause()
     }
 
@@ -250,7 +250,7 @@ class PaternosterActivity : AppCompatActivity() {
 
     private val opcuaUpdateTask = object : Runnable {
         override fun run() {
-            val string = jniOpcUaMessage()
+            val string = jniOpcuaMessage()
             if (string.trim().isNotEmpty()) {
                 textView.animateText(string)
             }
@@ -270,11 +270,11 @@ class PaternosterActivity : AppCompatActivity() {
 
     /* A JNI native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application. */
-    external fun jniOpcUaConnect()
-    external fun jniOpcUaCleanup()
-    external fun jniOpcUaTaskUp(value: Int = 0) : Int
-    external fun jniOpcUaTaskDown(value: Int = 0) : Int
-    external fun jniOpcUaTaskIdle() : Int
-    external fun jniOpcUaMessage() : String
+    external fun jniOpcuaConnect()
+    external fun jniOpcuaCleanup()
+    external fun jniOpcuaTaskUp(value: Int = 0) : Int
+    external fun jniOpcuaTaskDown(value: Int = 0) : Int
+    external fun jniOpcuaTaskIdle() : Int
+    external fun jniOpcuaMessage() : String
 }
 

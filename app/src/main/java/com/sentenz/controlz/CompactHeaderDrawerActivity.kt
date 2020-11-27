@@ -43,7 +43,7 @@ class CompactHeaderDrawerActivity : AppCompatActivity() {
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
 
         // Create a few sample profile
-        val profile = ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(R.drawable.profile).withBadge("123").withBadgeStyle(BadgeStyle().apply {
+        val profile = ProfileDrawerItem().withName("Sentenz").withEmail("info@sentenz.eu").withIcon(R.drawable.profile).withBadge("123").withBadgeStyle(BadgeStyle().apply {
             textColor = ColorHolder.fromColor(Color.WHITE)
             color = ColorHolder.fromColorRes(R.color.md_red_700)
         })

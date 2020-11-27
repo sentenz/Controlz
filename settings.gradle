@@ -12,4 +12,4 @@ include ':library-nav'
  * 3) build the app's APK in Android Studio or on command line
  * 4) undo step 1) and 2) above
  */
-//include ':gen-libs'
+include ':gen-libs'

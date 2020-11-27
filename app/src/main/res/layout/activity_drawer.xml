@@ -101,7 +101,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_view_0"
-                            android:onClick="@{() -> viewModel.onControlClicked()}"
+                            android:onClick="@{(v) -> viewModel.onControlClicked(v)}"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_view_1"
-                            android:onClick="@{() -> viewModel.onOdometerClicked()}"
+                            android:onClick="@{(v) -> viewModel.onOdometerClicked(v)}"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_view_2"
-                            android:onClick="@{() -> viewModel.onPaternosterClicked()}"
+                            android:onClick="@{(v) -> viewModel.onPaternosterClicked(v)}"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

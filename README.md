@@ -9,11 +9,11 @@ Android with Kotlin
 Read through our [contributing guidelines](https://github.com/Sentenz/general/blob/main/docs/CONTRIBUTING.md) to learn about our submission process, coding style guide and more.
 
 ## <a name="dev"></a> Developed By
-* Alexej Kloos
+* Sentenz
 * [sentenz.eu](http://sentenz.eu) - <alexej.kloos@sentenz.eu>
  
 ## <a name="lic"></a> License
-    Copyright 2020 Alexej Kloos
+    Copyright 2020 Sentenz
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

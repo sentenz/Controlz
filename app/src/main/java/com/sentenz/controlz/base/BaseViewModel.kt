@@ -1,10 +1,29 @@
+/*
+ * Copyright 2020 Sentenz
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.sentenz.controlz.base
 
+import android.os.Bundle
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sentenz.controlz.utils.livedata.Event
+import kotlin.reflect.KClass
 
 /**
  * Base for other ViewModel
@@ -13,19 +32,28 @@ import com.sentenz.controlz.utils.livedata.Event
  */
 abstract class BaseViewModel: ViewModel() {
 
-    /* Mutable/LiveData of String resource reference Event */
-    private val events = MutableLiveData<Event<Int>>()
+    /** Mutable/LiveData of String resource reference Event */
+    private val _message = MutableLiveData<Event<Int>>()
     val message : LiveData<Event<Int>>
-        get() = events
+        get() = _message
 
-    /* Post in background thread */
+    /** Post in background thread */
     fun postMessage(@StringRes message: Int) {
-        events.postValue(Event(message))
+        _message.postValue(Event(message))
     }
 
-    /* Post in main thread */
+    /** Post in main thread */
     fun setMessage(@StringRes message: Int) {
-        events.value = Event(message)
+        _message.value = Event(message)
+    }
+
+    init {
+        Log.i("BaseViewModel", "BaseViewModel created!")
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("BaseViewModel", "BaseViewModel destroyed!")
     }
 }
 

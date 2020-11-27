@@ -55,7 +55,7 @@ class PersistentDrawerActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.s_drawer_item_persistent_compact_header)
 
         // Create a few sample profile
-        val profile = ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(R.drawable.profile)
+        val profile = ProfileDrawerItem().withName("Sentenz").withEmail("info@sentenz.eu").withIcon(R.drawable.profile)
         val profile2 = ProfileDrawerItem().withName("Max Muster").withEmail("max.mustermann@gmail.com").withIcon(R.drawable.profile2)
         val profile3 = ProfileDrawerItem().withName("Felix House").withEmail("felix.house@gmail.com").withIcon(R.drawable.profile3)
         val profile4 = ProfileDrawerItem().withName("Mr. X").withEmail("mister.x.super@gmail.com").withIcon(R.drawable.profile4)

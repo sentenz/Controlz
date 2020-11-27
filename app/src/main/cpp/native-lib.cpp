@@ -614,7 +614,7 @@ opcua_client_idle(const int value = 0) {
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaConnect( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaConnect( JNIEnv * env, jobject thiz ) {
     /* Java method call */
     env->GetJavaVM(&g_jvm);
     g_obj = env->NewGlobalRef(thiz);
@@ -625,13 +625,13 @@ Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaConnect( JNIEnv * env, jo
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaCleanup( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaCleanup( JNIEnv * env, jobject thiz ) {
     opcua_client_cleanup();
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskUp( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaTaskUp( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_up();
 
     /* JVM method call */
@@ -646,21 +646,21 @@ Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskUp( JNIEnv * env, job
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskDown( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaTaskDown( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_down();
     return retval;
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaTaskIdle( JNIEnv * env, jobject thiz ) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaTaskIdle( JNIEnv * env, jobject thiz ) {
     UA_StatusCode retval = opcua_client_idle();
     return retval;
 }
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaMessage(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_view_ControlActivity_jniOpcuaMessage(JNIEnv *env, jobject thiz) {
     //std::string t_string = opcua_read_ndef_message();
 
     auto future = std::async(std::launch::async, opcua_read_ndef_message);
@@ -677,7 +677,7 @@ Java_com_sentenz_controlz_view_ControlActivity_jniOpcUaMessage(JNIEnv *env, jobj
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaConnect(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaConnect(JNIEnv *env, jobject thiz) {
     /* Java method call */
     env->GetJavaVM(&g_jvm);
     g_obj = env->NewGlobalRef(thiz);
@@ -688,34 +688,34 @@ Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaConnect(JNIEnv *env, jobje
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaCleanup(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaCleanup(JNIEnv *env, jobject thiz) {
     opcua_client_cleanup();
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskUp(JNIEnv *env, jobject thiz, jint value) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaTaskUp(JNIEnv *env, jobject thiz, jint value) {
     UA_StatusCode retval = opcua_client_up((int) value);
     return retval;
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskDown(JNIEnv *env, jobject thiz, jint value) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaTaskDown(JNIEnv *env, jobject thiz, jint value) {
     UA_StatusCode retval = opcua_client_down((int) value);
     return retval;
 }
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaTaskIdle(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaTaskIdle(JNIEnv *env, jobject thiz) {
     UA_StatusCode retval = opcua_client_idle();
     return retval;
 }
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_sentenz_controlz_PaternosterActivity_jniOpcUaMessage(JNIEnv *env, jobject thiz) {
+Java_com_sentenz_controlz_PaternosterActivity_jniOpcuaMessage(JNIEnv *env, jobject thiz) {
     //std::string t_string = opcua_read_ndef_message();
 
     auto future = std::async(std::launch::async, opcua_read_ndef_message);

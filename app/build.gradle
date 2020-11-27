@@ -236,7 +236,7 @@ dependencies {
      * comment them out to create lib binaries, and also comment out the ones in [settings.gradle],
      * after the lib is created, just comment them out again
      */
-    //api project(':gen-libs')
+    api project(':gen-libs')
 }
 
 configurations.all {

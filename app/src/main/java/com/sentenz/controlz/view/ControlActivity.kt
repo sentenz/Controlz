@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_multi_sample.toolbar
  *
  * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
  */
-class ControlActivity : BaseActivity() {
+class ControlActivity : AppCompatActivity() {
 
     companion object {
         init {
@@ -40,20 +40,11 @@ class ControlActivity : BaseActivity() {
     var opcua_connected : Boolean = false
     lateinit var handler: Handler
 
-    /* MVVM */
-    private lateinit var viewModel: ControlViewModel
-    override val baseViewModel: BaseViewModel?
-        get() = viewModel
-    private lateinit var binding: ActivityControlBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        //supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
-        /* MVVM */
-        binding = DataBindingUtil.setContentView(this@ControlActivity, R.layout.activity_control)
-        initViewModelAndBinding {
-            // Do other stuff if needed
-        }
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_control)
 
         /* Toolbar */
         setSupportActionBar(toolbar)
@@ -67,29 +58,6 @@ class ControlActivity : BaseActivity() {
 
         /* Update handler */
         handler = Handler(Looper.getMainLooper())
-    }
-
-    /**
-     * MVVM - Do multiple things:
-     *  - Initialize the current [viewModel] ViewModel
-     *  - Do the binding
-     *  - Initialize the [viewModel] observers
-     */
-    private fun initViewModelAndBinding( after: () -> Unit ) {
-        viewModel = provideViewModel()
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        binding.executePendingBindings()
-        initObservers()
-        after()
-    }
-
-    /**
-     * MVVM - Should be done after [baseViewModel] instantiation
-     */
-    override fun initObservers() {
-        // Important : don't forget to call the super method
-        super.initObservers()
     }
 
     private fun uiComposition() {
@@ -106,8 +74,8 @@ class ControlActivity : BaseActivity() {
             if (directionText.isNotEmpty()) {
                 text.append("\nAction:\t")
                 val actionText = when (action) {
-                    MotionEvent.ACTION_UP -> Toast.makeText(this, jniOpcUaTaskUp(), Toast.LENGTH_SHORT).show()
-                    MotionEvent.ACTION_DOWN -> Toast.makeText(this, jniOpcUaTaskDown(), Toast.LENGTH_SHORT).show()
+                    MotionEvent.ACTION_UP -> Toast.makeText(this, jniOpcuaTaskUp(), Toast.LENGTH_SHORT).show()
+                    MotionEvent.ACTION_DOWN -> Toast.makeText(this, jniOpcuaTaskDown(), Toast.LENGTH_SHORT).show()
                     MotionEvent.ACTION_MOVE -> "Move"
                     else -> action.toString()
                 }
@@ -117,16 +85,17 @@ class ControlActivity : BaseActivity() {
         }
 */
         dpad.onDirectionPressListener = { direction, action ->
+
             if (direction?.name.equals("UP")) {
                 when (action) {
-                    MotionEvent.ACTION_UP -> jniOpcUaTaskIdle()
-                    MotionEvent.ACTION_DOWN -> jniOpcUaTaskUp()
+                    MotionEvent.ACTION_UP -> jniOpcuaTaskIdle()
+                    MotionEvent.ACTION_DOWN -> jniOpcuaTaskUp()
                 }
             }
             if (direction?.name.equals("DOWN")) {
                 when (action) {
-                    MotionEvent.ACTION_UP -> jniOpcUaTaskIdle()
-                    MotionEvent.ACTION_DOWN -> jniOpcUaTaskDown()
+                    MotionEvent.ACTION_UP -> jniOpcuaTaskIdle()
+                    MotionEvent.ACTION_DOWN -> jniOpcuaTaskDown()
                 }
             }
         }
@@ -200,15 +169,14 @@ class ControlActivity : BaseActivity() {
         }
     }
 
-
     /**
-     * Callbacks
+     * External callbacks
      */
 
     override fun onResume() {
         super.onResume()
         /* OPC UA */
-        jniOpcUaConnect()
+        jniOpcuaConnect()
         /* Update handler */
         handler.post(opcuaUpdateTask)
     }
@@ -218,7 +186,7 @@ class ControlActivity : BaseActivity() {
         /* Update handler */
         handler.removeCallbacks(opcuaUpdateTask)
         /* OPC UA */
-        jniOpcUaCleanup()
+        jniOpcuaCleanup()
     }
 
     override fun onDestroy() {
@@ -234,12 +202,12 @@ class ControlActivity : BaseActivity() {
     }
 
     /**
-     * JNI
+     * JNI callbacks
      */
 
     private val opcuaUpdateTask = object : Runnable {
         override fun run() {
-            dpad.centerText = jniOpcUaMessage()
+            dpad.centerText = jniOpcuaMessage()
             handler.postDelayed(this, 1000)
         }
     }
@@ -254,13 +222,14 @@ class ControlActivity : BaseActivity() {
     }
 
     /**
-     *  A JNI native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
+     * JNI native methods
+     * Native methods that are implemented by the 'native-lib'
+     * native library, which is packaged with this application.
      */
-    external fun jniOpcUaConnect()
-    external fun jniOpcUaCleanup()
-    external fun jniOpcUaTaskUp() : Int
-    external fun jniOpcUaTaskDown() : Int
-    external fun jniOpcUaTaskIdle() : Int
-    external fun jniOpcUaMessage() : String
+    external fun jniOpcuaConnect()
+    external fun jniOpcuaCleanup()
+    external fun jniOpcuaTaskUp() : Int
+    external fun jniOpcuaTaskDown() : Int
+    external fun jniOpcuaTaskIdle() : Int
+    external fun jniOpcuaMessage() : String
 }

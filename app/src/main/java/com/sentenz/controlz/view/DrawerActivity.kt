@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import com.mikepenz.aboutlibraries.LibsBuilder
@@ -33,74 +34,49 @@ import kotlinx.android.synthetic.main.activity_drawer.*
 import com.sentenz.controlz.databinding.ActivityDrawerBinding
 
 /**
- * A V for [res.layout.activity_drawer]
+ * A View for [res.layout.activity_drawer]
  * A binding to VM [com.sentenz.controlz.vm.DrawerViewModel]
  *
  * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
  */
-class DrawerActivity : BaseActivity() {
+class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
 
     companion object {
         private const val PROFILE_SETTING = 100000
     }
 
+    /** MVVM */
+    override val layoutId = R.layout.activity_drawer
+    override val viewModelClass = DrawerViewModel::class
+
     private lateinit var headerView: AccountHeaderView
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-
-    /* MVVM */
-    private lateinit var viewModel: DrawerViewModel
-    override val baseViewModel: BaseViewModel?
-        get() = viewModel
-    private lateinit var binding: ActivityDrawerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /* MVVM */
-        binding = DataBindingUtil.setContentView(this@DrawerActivity, R.layout.activity_drawer)
-        initViewModelAndBinding {
-            // Do other stuff if needed
-        }
-
-        /* Handle Toolbar */
+        /** Handle Toolbar */
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
 
-        /* Material navigation drawer */
-        uiMaterialDrawer(savedInstanceState)
+        /** Material navigation drawer */
+        navigationDrawer(savedInstanceState)
 
     }
 
     /**
-     * MVVM - Do multiple things:
-     *  - Initialize the current [viewModel] ViewModel
-     *  - Do the binding
-     *  - Initialize the [viewModel] observers
+     * Internal functions
      */
-    private fun initViewModelAndBinding( after: () -> Unit ) {
-        viewModel = provideViewModel()
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        binding.executePendingBindings()
-        initObservers()
-        after()
-    }
 
-    /**
-     * MVVM - Should be done after [baseViewModel] instantiation
-     */
-    override fun initObservers() {
-        // Important : don't forget to call the super method
-        super.initObservers()
-    }
-
-    private fun uiMaterialDrawer(savedInstanceState: Bundle?) {
-        /* Create a few sample profile
-         * NOTE you have to define the loader logic too. See the CustomApplication for more details */
-        val profile = ProfileDrawerItem().apply { nameText = "Mike Penz"; descriptionText = "mikepenz@gmail.com"; iconUrl = "https://avatars3.githubusercontent.com/u/1476232?v=3&s=460"; identifier = 100 }
+    private fun navigationDrawer(savedInstanceState: Bundle?) {
+        /**
+         * Create a few sample profile
+         * NOTE you have to define the loader logic too. See the CustomApplication for more details
+         */
+        val profile = ProfileDrawerItem().apply { nameText = "Sentenz"; descriptionText = "info@sentenz.eu"; iconUrl = "https://avatars3.githubusercontent.com/u/1476232?v=3&s=460"; identifier = 100 }
         val profile2 = ProfileDrawerItem().apply { nameText = "Demo User"; descriptionText = "demo@github.com"; iconUrl = "https://avatars2.githubusercontent.com/u/3597376?v=3&s=460"; identifier = 101 }
         val profile3 = ProfileDrawerItem().apply { nameText = "Max Muster"; descriptionText = "max.mustermann@gmail.com"; iconRes = R.drawable.profile2; identifier = 102 }
         val profile4 = ProfileDrawerItem().apply { nameText = "Felix House"; descriptionText = "felix.house@gmail.com"; iconRes = R.drawable.profile3; identifier = 103 }
@@ -113,7 +89,7 @@ class DrawerActivity : BaseActivity() {
             }
         }
 
-        /* Create the AccountHeader */
+        /** Create the AccountHeader */
         headerView = AccountHeaderView(this).apply {
             attachToSliderView(slider)
             addProfiles(
@@ -128,8 +104,10 @@ class DrawerActivity : BaseActivity() {
                     ProfileSettingDrawerItem().apply { nameText = "Manage Account"; iconicsIcon = GoogleMaterial.Icon.gmd_settings; identifier = 100001 }
             )
             onAccountHeaderListener = { view, profile, current ->
-                /* sample usage of the onProfileChanged listener
-                 * if the clicked item has the identifier 1 add a new profile ;) */
+                /**
+                 * sample usage of the onProfileChanged listener
+                 * if the clicked item has the identifier 1 add a new profile ;)
+                 */
                 if (profile is IDrawerItem<*> && profile.identifier == PROFILE_SETTING.toLong()) {
                     val count = 100 + (profiles?.size ?: 0) + 1
                     val newProfile = ProfileDrawerItem().withNameShown(true).withName("Batman$count").withEmail("batman$count@gmail.com").withIcon(R.drawable.profile5).withIdentifier(count.toLong())
@@ -138,7 +116,7 @@ class DrawerActivity : BaseActivity() {
                         addProfile(newProfile, it.size - 2)
                     } ?: addProfiles(newProfile)
                 }
-                /* false if you have not consumed the event and it should close the drawer */
+                /** false if you have not consumed the event and it should close the drawer */
                 false
             }
             withSavedInstance(savedInstanceState)
@@ -175,7 +153,8 @@ class DrawerActivity : BaseActivity() {
                     SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
                     SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github).withIdentifier(20).withSelectable(false),
                     SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withIdentifier(21).withTag("Bullhorn")
-                    /*,
+                    /*
+                    ,
                     DividerDrawerItem ()
                     SwitchDrawerItem ().withName("Switch").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
                     SwitchDrawerItem ().withName("Switch2").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener).withSelectable(false)
@@ -187,11 +166,13 @@ class DrawerActivity : BaseActivity() {
                     */
             )
             onDrawerItemClickListener = { v, drawerItem, position ->
-                //check if the drawerItem is set.
-                //there are different reasons for the drawerItem to be null
-                //--> click on the header
-                //--> click on the footer
-                //those items don't contain a drawerItem
+                /**
+                 * Check if the drawerItem is set.
+                 * There are different reasons for the drawerItem to be null
+                 * --> click on the header
+                 * --> click on the footer
+                 * those items don't contain a drawerItem.
+                 */
 
                 var intent: Intent? = null
                 when {
@@ -230,12 +211,12 @@ class DrawerActivity : BaseActivity() {
         //        SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
         //)
 
-        //only set the active selection or active profile if we do not recreate the activity
+        /** Only set the active selection or active profile if we do not recreate the activity */
         if (savedInstanceState == null) {
-            // set the selection to the item with the identifier 11
+            /** Set the selection to the item with the identifier 11 */
             slider.setSelection(21, false)
 
-            //set the active profile
+            /** Set the active profile */
             headerView.activeProfile = profile3
         }
 
@@ -247,6 +228,10 @@ class DrawerActivity : BaseActivity() {
         actionBarDrawerToggle.onConfigurationChanged(newConfig)
     }
 
+    /**
+     * Callbacks
+     */
+    
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         actionBarDrawerToggle.syncState()
@@ -261,27 +246,27 @@ class DrawerActivity : BaseActivity() {
 
     override fun onSaveInstanceState(_outState: Bundle) {
         var outState = _outState
-        //add the values which need to be saved from the drawer to the bundle
+        /** Add the values which need to be saved from the drawer to the bundle */
         outState = slider.saveInstanceState(outState)
 
-        //add the values which need to be saved from the accountHeader to the bundle
+        /** Add the values which need to be saved from the accountHeader to the bundle */
         outState = headerView.saveInstanceState(outState)
         super.onSaveInstanceState(outState)
     }
 
     override fun onBackPressed() {
-        // Handle the back press :D close the drawer first and if the drawer is closed close the activity
+        /** Handle the back press close the drawer first and if the drawer is closed close the activity */
         if (root.isDrawerOpen(slider)) {
             root.closeDrawer(slider)
         } else {
             super.onBackPressed()
         }
-        /* Dedicated  device - Back Button */
+        /** Dedicated  device - Back Button */
     }
 
     override fun onPause() {
         super.onPause()
-        /* Dedicated  device - Pause Button */
+        /** Dedicated  device - Pause Button */
         val activityManager = applicationContext.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         activityManager.moveTaskToFront(taskId, 0)
     }
