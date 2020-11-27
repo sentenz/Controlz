@@ -35,7 +35,7 @@ import com.sentenz.controlz.databinding.ActivityDrawerBinding
 
 /**
  * A View for [res.layout.activity_drawer]
- * A binding to VM [com.sentenz.controlz.vm.DrawerViewModel]
+ * A binding to ViewModel [com.sentenz.controlz.vm.DrawerViewModel]
  *
  * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
  */
@@ -45,17 +45,18 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
         private const val PROFILE_SETTING = 100000
     }
 
-    /** MVVM */
+    /** Initialize MVVM */
     override val layoutId = R.layout.activity_drawer
     override val viewModelClass = DrawerViewModel::class
 
+    /** Initialize Navigation Drawer */
     private lateinit var headerView: AccountHeaderView
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /** Handle Toolbar */
+        /** Setup Toolbar */
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
