@@ -36,9 +36,9 @@ class SecondDrawerFragment : Fragment() {
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye)
+                    PrimaryDrawerItem().withName(R.string.drawer_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.drawer_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.drawer_custom).withIcon(FontAwesome.Icon.faw_eye)
             )
             setSavedInstance(savedInstanceState)
             setSelection(1)

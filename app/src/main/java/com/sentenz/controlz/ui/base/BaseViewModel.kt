@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sentenz.controlz.base
+package com.sentenz.controlz.ui.base
 
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +27,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import com.sentenz.controlz.R
 import com.sentenz.controlz.utils.livedata.Event
-import kotlin.reflect.KClass
 
 /**
  * Base for other ViewModel

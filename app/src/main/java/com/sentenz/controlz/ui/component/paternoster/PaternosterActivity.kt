@@ -1,4 +1,4 @@
-package com.sentenz.controlz
+package com.sentenz.controlz.ui.component.paternoster
 
 import android.Manifest
 import android.app.Activity
@@ -13,7 +13,6 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +21,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import com.hanks.htextview.base.HTextView
 import com.ohoussein.playpause.PlayPauseView
+import com.sentenz.controlz.NfcActivity
+import com.sentenz.controlz.R
 import com.victor.loading.rotate.RotateLoading
 import kotlinx.android.synthetic.main.activity_multi_sample.*
 import java.util.*
@@ -30,12 +31,19 @@ class PaternosterActivity : AppCompatActivity() {
 
     companion object {
         init {
-            /* Load JNI */
+            /** Load JNI */
             System.loadLibrary("native-lib")
         }
         private const val  REQUEST_CODE_STT = 1
     }
 
+    /** Declare and initialize variables */
+    private var isOpcuaConnection : Boolean = false
+    private lateinit var handler: Handler
+    private lateinit var rotateLoading: RotateLoading
+    private lateinit var textView: HTextView
+    private lateinit var editText: EditText
+    private lateinit var playPauseView: PlayPauseView
     private val textToSpeechEngine: TextToSpeech by lazy {
         TextToSpeech(this,
                 TextToSpeech.OnInitListener { status ->
@@ -45,63 +53,52 @@ class PaternosterActivity : AppCompatActivity() {
                 })
     }
 
-    var opcua_connected : Boolean = false
-    lateinit var handler: Handler
-    lateinit var textView: HTextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        //supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paternoster)
 
-        /* Toolbar */
-        setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.s_title_paternoster)
-        /* Set the back arrow in the toolbar */
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(false)
+        setupToolbar()
+        setupProgress()
+        setupTextView()
+        setupTextEdit()
+        setupButton()
 
-        /* UI composition */
-        uiComposition()
-
-        /* Update handler */
+        /** Initialize handler */
         handler = Handler(Looper.getMainLooper())
     }
 
-    private fun uiComposition() {
-        /* Circular graph view */
-        val rotateLoading = findViewById<RotateLoading>(R.id.rotateloading)
-
-        /* Text view */
-        textView = findViewById<HTextView>(R.id.textview)
-        textView.animateText("SENTENZ")
-
-        /* Edit text view */
-        val editText = findViewById<EditText>(R.id.textedit)
-        editText.doAfterTextChanged {
-            if (it.toString().trim().isNotEmpty()) {
-                textView.animateText(it?.toString())
-            } else {
-                textView.animateText("SENTENZ")
-            }
+    override fun onResume() {
+        super.onResume()
+        /** Connect OPC UA client */
+        jniOpcuaConnect()
+        /** Update JNI callback handler */
+        handler.post(opcuaUpdateTask)
+        /** Check STT permission */
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
         }
+    }
 
-        /* Play & pause button view */
-        val playPauseView = findViewById<PlayPauseView>(R.id.play_pause_view)
-        playPauseView.setOnClickListener {
-            playPauseView.toggle()
-            if (!playPauseView.isPlay) {
-                rotateLoading.start()
-                var id : Int = 0
-                if (editText.text.toString().trim().isNotEmpty()) {
-                    id = editText.text.toString().toInt()
-                }
-                jniOpcuaTaskUp(id)
-            } else {
-                rotateLoading.stop()
-                jniOpcuaTaskIdle()
-            }
+    override fun onPause() {
+        /** TTS */
+        textToSpeechEngine.stop()
+        /** Remove JNI callback from handler */
+        handler.removeCallbacks(opcuaUpdateTask)
+        /** Disconnect OPC UA client */
+        jniOpcuaDisconnect()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        /** TTS */
+        textToSpeechEngine.shutdown()
+        super.onDestroy()
+    }
+
+    override fun onBackPressed() {
+        when {
+            //root.isDrawerOpen(slider) -> root.closeDrawer(slider)
+            //root.isDrawerOpen(slider_end) -> root.closeDrawer(slider_end)
+            else -> super.onBackPressed()
         }
     }
 
@@ -115,12 +112,12 @@ class PaternosterActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.nfc_menu, menu)
+        menuInflater.inflate(R.menu.menu_tool, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.findItem(R.id.opcua)?.isVisible = opcua_connected
+        menu?.findItem(R.id.menu_opcua)?.isVisible = isOpcuaConnection
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -129,25 +126,22 @@ class PaternosterActivity : AppCompatActivity() {
         when (item.itemId) {
             android.R.id.home -> {
                 onBackPressed()
-                Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show()
                 return true
             }
-            R.id.nfc_read -> {
+            R.id.menu_nfc_read -> {
                 val intent = Intent(this, NfcActivity::class.java)
                 startActivity(intent)
-                Toast.makeText(this, "Menu 1", Toast.LENGTH_SHORT).show()
                 return true
             }
-            R.id.nfc_write -> {
-                Toast.makeText(this, "Menu 2", Toast.LENGTH_SHORT).show()
+            R.id.menu_nfc_write -> {
                 return true
             }
-            R.id.opcua -> {
-                Toast.makeText(this, "Menu 2", Toast.LENGTH_SHORT).show()
+            R.id.menu_opcua -> {
+                Toast.makeText(this, R.string.menu_opcua_description, Toast.LENGTH_SHORT).show()
                 return true
             }
-            R.id.stt -> {
-                uiSpeechToText()
+            R.id.menu_stt -> {
+                onSpeechToText()
                 return true
             }
             else -> {
@@ -157,48 +151,10 @@ class PaternosterActivity : AppCompatActivity() {
     }
 
     /**
-     * Callbacks
+     * STT/TTS callbacks
      */
 
-    override fun onResume() {
-        super.onResume()
-        /* OPC UA */
-        jniOpcuaConnect()
-        handler.post(opcuaUpdateTask)
-        /* STT */
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-        }
-    }
-
-    override fun onPause() {
-        /* TTS */
-        textToSpeechEngine.stop()
-        /* JNI */
-        handler.removeCallbacks(opcuaUpdateTask)
-        /* OPC UA */
-        jniOpcuaCleanup()
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        /* TTS */
-        textToSpeechEngine.shutdown()
-        super.onDestroy()
-    }
-
-    override fun onBackPressed() {
-        when {
-            //root.isDrawerOpen(slider) -> root.closeDrawer(slider)
-            //root.isDrawerOpen(slider_end) -> root.closeDrawer(slider_end)
-            else -> super.onBackPressed()
-        }
-    }
-
-    /**
-     * STT
-     */
-
-    private fun uiSpeechToText() {
+    private fun onSpeechToText() {
         val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, false)
@@ -218,7 +174,7 @@ class PaternosterActivity : AppCompatActivity() {
         }
     }
 
-    private fun uiTextToSpeech(text: String) {
+    private fun onTextToSpeech(text: String) {
         if (text.isNotEmpty()) {
             textToSpeechEngine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts1")
         } else {
@@ -235,7 +191,7 @@ class PaternosterActivity : AppCompatActivity() {
                     result?.let { it ->
                         val recognizedText = it[0].filter { it.isDigit() }
                         val speechText = "${getString(R.string.s_tts_prepend)} $recognizedText ${getString(R.string.s_tts_append)}"
-                        uiTextToSpeech(speechText)
+                        onTextToSpeech(speechText)
                         textView.animateText(recognizedText)
                         Toast.makeText(this, recognizedText, Toast.LENGTH_LONG).show()
                     }
@@ -245,7 +201,69 @@ class PaternosterActivity : AppCompatActivity() {
     }
 
     /**
-     * JNI
+     * Components
+     */
+
+    private fun setupToolbar() {
+        /** Set status bar color */
+/*
+        val window: Window = this@PaternosterActivity.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = ContextCompat.getColor(this@PaternosterActivity, R.color.colorPrimaryDark)
+*/
+        /** Set toolbar */
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle(R.string.list_title_paternoster)
+        /** Set the back arrow in the toolbar */
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(false)
+    }
+
+    private fun setupProgress() {
+        /** Circular graph view */
+        rotateLoading = findViewById<RotateLoading>(R.id.rotateloading)
+    }
+
+    private fun setupTextView() {
+        /** Text view */
+        textView = findViewById<HTextView>(R.id.textview)
+        textView.animateText("SENTENZ")
+    }
+
+    private fun setupTextEdit() {
+        /** Edit text view */
+        editText = findViewById<EditText>(R.id.textedit)
+        editText.doAfterTextChanged {
+            if (it.toString().trim().isNotEmpty()) {
+                textView.animateText(it?.toString())
+            } else {
+                textView.animateText("SENTENZ")
+            }
+        }
+    }
+
+    private fun setupButton() {
+        /** Play & pause button view */
+        val playPauseView = findViewById<PlayPauseView>(R.id.play_pause_view)
+        playPauseView.setOnClickListener {
+            playPauseView.toggle()
+            if (!playPauseView.isPlay) {
+                rotateLoading.start()
+                var id : Int = 0
+                if (editText.text.toString().trim().isNotEmpty()) {
+                    id = editText.text.toString().toInt()
+                }
+                jniOpcuaTaskUp(id)
+            } else {
+                rotateLoading.stop()
+                jniOpcuaTaskIdle()
+            }
+        }
+    }
+
+    /**
+     * JNI callbacks
      */
 
     private val opcuaUpdateTask = object : Runnable {
@@ -260,7 +278,7 @@ class PaternosterActivity : AppCompatActivity() {
     }
 
     fun jniConnectCallback(connected: Boolean) {
-        opcua_connected = connected
+        isOpcuaConnection = connected
         invalidateOptionsMenu()
     }
 
@@ -268,10 +286,14 @@ class PaternosterActivity : AppCompatActivity() {
         Log.i("jniMessageCallback", message)
     }
 
-    /* A JNI native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application. */
+    /**
+     * JNI native methods
+     * Native methods that are implemented by the 'native-lib'
+     * native library, which is packaged with this application.
+     */
+
     external fun jniOpcuaConnect()
-    external fun jniOpcuaCleanup()
+    external fun jniOpcuaDisconnect()
     external fun jniOpcuaTaskUp(value: Int = 0) : Int
     external fun jniOpcuaTaskDown(value: Int = 0) : Int
     external fun jniOpcuaTaskIdle() : Int

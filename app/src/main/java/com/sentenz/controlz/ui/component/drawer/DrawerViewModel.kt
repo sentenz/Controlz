@@ -1,14 +1,12 @@
-package com.sentenz.controlz.vm
+package com.sentenz.controlz.ui.component.drawer
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.sentenz.controlz.PaternosterActivity
+import com.sentenz.controlz.ui.component.paternoster.PaternosterActivity
 import com.sentenz.controlz.R
-import com.sentenz.controlz.base.BaseViewModel
-import com.sentenz.controlz.view.ControlActivity
+import com.sentenz.controlz.ui.base.BaseViewModel
+import com.sentenz.controlz.ui.component.control.ControlActivity
 
 
 /**
@@ -46,7 +44,7 @@ class DrawerViewModel : BaseViewModel() {
     }
 
     fun onOdometerClicked(view: View) {
-        setMessage(R.string.s_title_odometer)
+        setMessage(R.string.list_title_odometer)
     }
 
     /*

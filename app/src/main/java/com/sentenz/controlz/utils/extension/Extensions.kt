@@ -4,7 +4,6 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -12,11 +11,11 @@ import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.sentenz.controlz.R
-import com.sentenz.controlz.base.NavigateTo
-import com.sentenz.controlz.base.ShowSnackbar
+import com.sentenz.controlz.ui.base.NavigateTo
+import com.sentenz.controlz.ui.base.ShowSnackbar
 
 fun View.snack(showSnackbarEvent: ShowSnackbar): Snackbar = with(showSnackbarEvent) {
-    val whiteSpan = ForegroundColorSpan(ContextCompat.getColor(context, R.color.c_white_1000))
+    val whiteSpan = ForegroundColorSpan(ContextCompat.getColor(context, R.color.colorWhite_1000))
     val snackbarText = SpannableStringBuilder(message)
     snackbarText.setSpan(whiteSpan, 0, snackbarText.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
 

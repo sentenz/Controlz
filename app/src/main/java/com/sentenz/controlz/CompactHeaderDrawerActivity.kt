@@ -36,7 +36,7 @@ class CompactHeaderDrawerActivity : AppCompatActivity() {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.s_drawer_item_compact_header)
+        supportActionBar?.setTitle(R.string.drawer_compact_header)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
@@ -70,14 +70,14 @@ class CompactHeaderDrawerActivity : AppCompatActivity() {
 
         slider.apply {
             itemAdapter.add(
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
-                    PrimaryDrawerItem().withName(R.string.s_drawer_item_custom).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(5),
-                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
+                    PrimaryDrawerItem().withName(R.string.drawer_home).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                    PrimaryDrawerItem().withName(R.string.drawer_free_play).withIcon(FontAwesome.Icon.faw_gamepad),
+                    PrimaryDrawerItem().withName(R.string.drawer_custom).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(5),
+                    SectionDrawerItem().withName(R.string.drawer_section_header),
+                    SecondaryDrawerItem().withName(R.string.drawer_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    SecondaryDrawerItem().withName(R.string.drawer_help).withIcon(FontAwesome.Icon.faw_question).withEnabled(false),
+                    SecondaryDrawerItem().withName(R.string.drawer_open_source).withIcon(FontAwesome.Icon.faw_github),
+                    SecondaryDrawerItem().withName(R.string.drawer_contact).withIcon(FontAwesome.Icon.faw_bullhorn)
             )
             onDrawerItemClickListener = { v, drawerItem, position ->
                 if (drawerItem.identifier == 1L) {

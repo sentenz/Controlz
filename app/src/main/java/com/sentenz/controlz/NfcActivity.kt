@@ -39,7 +39,7 @@ class NfcActivity : AppCompatActivity() , Listener {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.s_title_nfc)
+        supportActionBar?.setTitle(R.string.list_title_nfc)
         // Set the back arrow in the toolbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(false)

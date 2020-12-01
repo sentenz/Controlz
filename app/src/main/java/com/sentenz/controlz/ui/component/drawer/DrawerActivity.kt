@@ -1,4 +1,4 @@
-package com.sentenz.controlz.view
+package com.sentenz.controlz.ui.component.drawer
 
 import android.app.ActivityManager
 import android.content.Context
@@ -7,9 +7,10 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.databinding.DataBindingUtil
+import androidx.core.content.ContextCompat
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
@@ -27,16 +28,13 @@ import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.updateBadge
 import com.mikepenz.materialdrawer.widget.AccountHeaderView
 import com.sentenz.controlz.*
-import com.sentenz.controlz.base.BaseActivity
-import com.sentenz.controlz.base.BaseViewModel
-import com.sentenz.controlz.vm.DrawerViewModel
+import com.sentenz.controlz.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_drawer.*
 import com.sentenz.controlz.databinding.ActivityDrawerBinding
+import com.sentenz.controlz.ui.component.control.ControlActivity
+import com.sentenz.controlz.ui.component.paternoster.PaternosterActivity
 
 /**
- * A View for [res.layout.activity_drawer]
- * A binding to ViewModel [com.sentenz.controlz.vm.DrawerViewModel]
- *
  * MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc4017
  */
 class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
@@ -49,30 +47,70 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
     override val layoutId = R.layout.activity_drawer
     override val viewModelClass = DrawerViewModel::class
 
-    /** Initialize Navigation Drawer */
+    /** Initialize navigation drawer */
     private lateinit var headerView: AccountHeaderView
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /** Setup Toolbar */
+        setupToolbar()
+        setupNavigationDrawer(savedInstanceState)
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        actionBarDrawerToggle.syncState()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSaveInstanceState(_outState: Bundle) {
+        var outState = _outState
+        /** Add the values which need to be saved from the drawer to the bundle */
+        outState = slider.saveInstanceState(outState)
+
+        /** Add the values which need to be saved from the accountHeader to the bundle */
+        outState = headerView.saveInstanceState(outState)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onBackPressed() {
+        /** Handle the back press close the drawer first and if the drawer is closed close the activity */
+        if (root.isDrawerOpen(slider)) {
+            root.closeDrawer(slider)
+        } else {
+            super.onBackPressed()
+        }
+        /** Dedicated  device - Back Button */
+    }
+
+    override fun onPause() {
+        super.onPause()
+        /** Dedicated  device - Pause Button */
+        val activityManager = applicationContext.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        activityManager.moveTaskToFront(taskId, 0)
+    }
+
+    /**
+     * Components
+     */
+
+    private fun setupToolbar() {
+        /** Set toolbar */
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this, root, toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open, com.mikepenz.materialdrawer.R.string.material_drawer_close)
-
-        /** Material navigation drawer */
-        navigationDrawer(savedInstanceState)
-
     }
 
-    /**
-     * Internal functions
-     */
-
-    private fun navigationDrawer(savedInstanceState: Bundle?) {
+    private fun setupNavigationDrawer(savedInstanceState: Bundle?) {
         /**
          * Create a few sample profile
          * NOTE you have to define the loader logic too. See the CustomApplication for more details
@@ -125,20 +163,20 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
 
         slider.apply {
             addItems(
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_title_control; descriptionRes = R.string.s_content_control; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1001 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_title_paternoster; descriptionRes = R.string.s_content_paternoster; iconicsIcon = FontAwesome.Icon.faw_gamepad; isSelectable = false; identifier = 3 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_compact_header; descriptionRes = R.string.s_drawer_item_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_action_bar_drawer; descriptionRes = R.string.s_drawer_item_action_bar_drawer_desc; iconicsIcon = FontAwesome.Icon.faw_home; isSelectable = false; identifier = 2 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_advanced_drawer; descriptionRes = R.string.s_drawer_item_advanced_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_adb; isSelectable = false; identifier = 5 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_embedded_drawer; descriptionRes = R.string.s_drawer_item_embedded_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_full; isSelectable = false; identifier = 7 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_fullscreen_drawer; descriptionRes = R.string.s_drawer_item_fullscreen_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_label; isSelectable = false; identifier = 8 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_menu_drawer; descriptionRes = R.string.s_drawer_item_menu_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_filter_list; isSelectable = false; identifier = 10 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_mini_drawer; descriptionRes = R.string.s_drawer_item_mini_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_charging_full; isSelectable = false; identifier = 11 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_fragment_drawer; descriptionRes = R.string.s_drawer_item_fragment_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_disc_full; isSelectable = false; identifier = 12 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_collapsing_toolbar_drawer; descriptionRes = R.string.s_drawer_item_collapsing_toolbar_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_camera_rear; isSelectable = false; identifier = 13 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_persistent_compact_header; descriptionRes = R.string.s_drawer_item_persistent_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 14 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_crossfade_drawer_layout_drawer; descriptionRes = R.string.s_drawer_item_crossfade_drawer_layout_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; isSelectable = false; identifier = 15 },
-                    PrimaryDrawerItem().apply { nameRes = R.string.s_drawer_item_navigation_drawer; descriptionRes = R.string.s_drawer_item_navigation_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_navigation; isSelectable = false; identifier = 1305 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.list_title_control; descriptionRes = R.string.list_description_control; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1001 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.list_title_paternoster; descriptionRes = R.string.list_description_paternoster; iconicsIcon = FontAwesome.Icon.faw_gamepad; isSelectable = false; identifier = 3 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_compact_header; descriptionRes = R.string.drawer_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 1 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_action_bar_drawer; descriptionRes = R.string.drawer_action_bar_drawer_desc; iconicsIcon = FontAwesome.Icon.faw_home; isSelectable = false; identifier = 2 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_advanced_drawer; descriptionRes = R.string.drawer_advanced_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_adb; isSelectable = false; identifier = 5 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_embedded_drawer; descriptionRes = R.string.drawer_embedded_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_full; isSelectable = false; identifier = 7 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_fullscreen_drawer; descriptionRes = R.string.drawer_fullscreen_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_label; isSelectable = false; identifier = 8 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_menu_drawer; descriptionRes = R.string.drawer_menu_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_filter_list; isSelectable = false; identifier = 10 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_mini_drawer; descriptionRes = R.string.drawer_mini_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_battery_charging_full; isSelectable = false; identifier = 11 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_fragment_drawer; descriptionRes = R.string.drawer_fragment_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_disc_full; isSelectable = false; identifier = 12 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_collapsing_toolbar_drawer; descriptionRes = R.string.drawer_collapsing_toolbar_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_camera_rear; isSelectable = false; identifier = 13 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_persistent_compact_header; descriptionRes = R.string.drawer_persistent_compact_header_desc; iconicsIcon = GoogleMaterial.Icon.gmd_brightness_5; isSelectable = false; identifier = 14 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_crossfade_drawer_layout_drawer; descriptionRes = R.string.drawer_crossfade_drawer_layout_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; isSelectable = false; identifier = 15 },
+                    PrimaryDrawerItem().apply { nameRes = R.string.drawer_navigation_drawer; descriptionRes = R.string.drawer_navigation_drawer_desc; iconicsIcon = GoogleMaterial.Icon.gmd_navigation; isSelectable = false; identifier = 1305 },
                     ExpandableBadgeDrawerItem().apply {
                         nameText = "Collapsable Badge"; iconicsIcon = GoogleMaterial.Icon.gmd_format_bold; identifier = 18; isSelectable = false; badge = StringHolder("100")
                         badgeStyle = BadgeStyle().apply { textColor = ColorHolder.fromColor(Color.WHITE); color = ColorHolder.fromColorRes(R.color.md_red_700) }
@@ -151,9 +189,9 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
                             SecondaryDrawerItem().withName("CollapsableItem").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_filter_list).withIdentifier(2002),
                             SecondaryDrawerItem().withName("CollapsableItem 2").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_filter_list).withIdentifier(2003)
                     ),
-                    SectionDrawerItem().withName(R.string.s_drawer_item_section_header),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github).withIdentifier(20).withSelectable(false),
-                    SecondaryDrawerItem().withName(R.string.s_drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withIdentifier(21).withTag("Bullhorn")
+                    SectionDrawerItem().withName(R.string.drawer_section_header),
+                    SecondaryDrawerItem().withName(R.string.drawer_open_source).withIcon(FontAwesome.Icon.faw_github).withIdentifier(20).withSelectable(false),
+                    SecondaryDrawerItem().withName(R.string.drawer_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withIdentifier(21).withTag("Bullhorn")
                     /*
                     ,
                     DividerDrawerItem ()
@@ -208,8 +246,8 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
         //slider.withStickyHeader(R.layout.header)
 
         //slider.addStickyDrawerItems(
-        //        SecondaryDrawerItem().withName(R.string.s_drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
-        //        SecondaryDrawerItem().withName(R.string.s_drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github)
+        //        SecondaryDrawerItem().withName(R.string.drawer_settings).withIcon(FontAwesome.Icon.faw_cog).withIdentifier(10),
+        //        SecondaryDrawerItem().withName(R.string.drawer_open_source).withIcon(FontAwesome.Icon.faw_github)
         //)
 
         /** Only set the active selection or active profile if we do not recreate the activity */
@@ -227,48 +265,5 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
         override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         actionBarDrawerToggle.onConfigurationChanged(newConfig)
-    }
-
-    /**
-     * Callbacks
-     */
-    
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        actionBarDrawerToggle.syncState()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    override fun onSaveInstanceState(_outState: Bundle) {
-        var outState = _outState
-        /** Add the values which need to be saved from the drawer to the bundle */
-        outState = slider.saveInstanceState(outState)
-
-        /** Add the values which need to be saved from the accountHeader to the bundle */
-        outState = headerView.saveInstanceState(outState)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onBackPressed() {
-        /** Handle the back press close the drawer first and if the drawer is closed close the activity */
-        if (root.isDrawerOpen(slider)) {
-            root.closeDrawer(slider)
-        } else {
-            super.onBackPressed()
-        }
-        /** Dedicated  device - Back Button */
-    }
-
-    override fun onPause() {
-        super.onPause()
-        /** Dedicated  device - Pause Button */
-        val activityManager = applicationContext.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        activityManager.moveTaskToFront(taskId, 0)
     }
 }

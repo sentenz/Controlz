@@ -1,17 +1,11 @@
-package com.sentenz.controlz.base
+package com.sentenz.controlz.ui.base
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.sentenz.controlz.utils.extension.toast
 import kotlin.reflect.KClass
 

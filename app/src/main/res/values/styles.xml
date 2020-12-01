@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="AppTheme.NoActionBar.Transparent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Widget.MaterialDrawerStyleCustom" parent="Widget.MaterialDrawerStyle">
         <!-- MaterialDrawer specific values -->
         <item name="materialDrawerBackground">#303030</item>

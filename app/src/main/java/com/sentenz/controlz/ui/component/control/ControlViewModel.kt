@@ -1,6 +1,6 @@
-package com.sentenz.controlz.vm
+package com.sentenz.controlz.ui.component.control
 
-import com.sentenz.controlz.base.BaseViewModel
+import com.sentenz.controlz.ui.base.BaseViewModel
 import com.sentenz.controlz.R
 
 /**
@@ -34,7 +34,7 @@ class ControlViewModel : BaseViewModel() {
 
     /* CardView onClick callback */
     fun onControlClicked() {
-        setMessage(R.string.s_title_control)
+        setMessage(R.string.list_title_control)
 //        navigateTo(R.id.controlActivity)
 /*
 

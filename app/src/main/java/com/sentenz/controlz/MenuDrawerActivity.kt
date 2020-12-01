@@ -21,7 +21,7 @@ class MenuDrawerActivity : AppCompatActivity() {
 
         // Handle Toolbar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle(R.string.s_drawer_item_menu_drawer)
+        supportActionBar?.setTitle(R.string.drawer_menu_drawer)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 

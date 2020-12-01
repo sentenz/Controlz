@@ -1,64 +1,115 @@
-<resources>
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" tools:ignore="MissingTranslation">
+
+    <!-- ####################################
+                     Main
+    ###################################### -->
+
+    <!-- Don't change the name of [app_name} -->
     <string name="app_name">Sentenz Controlz</string>
-    <string name="s_app_logo_name">SENTENZ</string>
+    <string name="main_app_logo">SENTENZ</string>
 
-    <!-- Sample menu -->
-    <string name="action_settings">Settings</string>
+    <!-- ####################################
+                     Menu
+    ###################################### -->
+    <string name="menu_opcua">OPC UA</string>
+    <string name="menu_opcua_description">OPC UA connection established</string>
+    <string name="menu_stt">STT</string>
+    <string name="menu_nfc_read">Read with NFC</string>
+    <string name="menu_nfc_write">Write with NFC</string>
 
-    <!-- Drawer Items -->
-    <string name="s_drawer_item_persistent_compact_header">PersistentHeader Drawer</string>
-    <string name="s_drawer_item_persistent_compact_header_desc">Smaller persistent account header</string>
-    <string name="s_drawer_item_compact_header">CompactHeader Drawer</string>
-    <string name="s_drawer_item_compact_header_desc">Smaller account header</string>
-    <string name="s_drawer_item_action_bar_drawer">ActionBar Drawer</string>
-    <string name="s_drawer_item_action_bar_drawer_desc">Shows how to use with an actionbar</string>
-    <string name="s_drawer_item_multi_drawer">Multi Drawer</string>
-    <string name="s_drawer_item_multi_drawer_desc">Left and Right side drawer</string>
-    <string name="s_drawer_item_non_translucent_status_drawer">NonTranslucentStatus Drawer</string>
-    <string name="s_drawer_item_non_translucent_status_drawer_desc">Drawer below statusBar</string>
-    <string name="s_drawer_item_advanced_drawer">Advanced Drawer</string>
-    <string name="s_drawer_item_advanced_drawer_desc">More advanced drawer features</string>
-    <string name="s_drawer_item_embedded_drawer">Embedded Drawer !!</string>
-    <string name="s_drawer_item_embedded_drawer_desc">Embed the drawer anywhere</string>
-    <string name="s_drawer_item_mini_drawer">MiniDrawer</string>
-    <string name="s_drawer_item_mini_drawer_desc">Always visible MiniDrawer</string>
-    <string name="s_drawer_item_fullscreen_drawer">FullScreen Drawer</string>
-    <string name="s_drawer_item_fullscreen_drawer_desc">Drawer in FullScreen activity</string>
-    <string name="s_drawer_item_custom_container_drawer_desc">Drawer in different view hirachy</string>
-    <string name="s_drawer_item_menu_drawer">Menu Drawer</string>
-    <string name="s_drawer_item_menu_drawer_desc">Drawer from menu.xml</string>
-    <string name="s_drawer_item_fragment_drawer">Fragment Drawer</string>
-    <string name="s_drawer_item_fragment_drawer_desc">Use drawer within fragments</string>
-    <string name="s_drawer_item_collapsing_toolbar_drawer">CollapsingToolbar Drawer</string>
-    <string name="s_drawer_item_collapsing_toolbar_drawer_desc">Uses a CollapsingToolbarLayout</string>
-    <string name="s_drawer_item_crossfade_drawer_layout_drawer">CrossfadeDrawerLayout</string>
-    <string name="s_drawer_item_crossfade_drawer_layout_drawer_desc">2-Step Drawer behavior</string>
-    <string name="s_drawer_item_navigation_drawer">Nav Controller Drawer</string>
-    <string name="s_drawer_item_navigation_drawer_desc">Drawer with a Nav Controller</string>
+    <!-- ####################################
+                 Notification
+    ###################################### -->
 
-    <string name="s_drawer_item_menu_drawer_item">Menu Drawer Item</string>
-    <string name="s_drawer_item_menu_drawer_item_desc">Sample menu item with overflow button</string>
+    <string name="notification_name">"Sentenz App"</string>
+    <!-- XTXT: Notification channel description for os settings -->
+    <string name="notification_description">"Notifications from the Sentenz App"</string>
+    <!-- XHED: Notification title -->
+    <string name="notification_headline">"Sentenz App"</string>
+    <!-- XTXT: Notification body -->
+    <string name="notification_body">"You have new messages from your Sentenz App."</string>
 
-    <string name="s_drawer_item_home">Home</string>
-    <string name="s_drawer_item_free_play">Free Play</string>
-    <string name="s_drawer_item_custom">Custom</string>
-    <string name="s_drawer_item_section_header">Section Header</string>
-    <string name="s_drawer_item_settings">Settings</string>
-    <string name="s_drawer_item_help">Help</string>
-    <string name="s_drawer_item_open_source">Open Source</string>
-    <string name="s_drawer_item_contact">Contact</string>
-    <string name="s_drawer_item_read_with_nfc">Read with NFC</string>
-    <string name="s_drawer_item_write_with_nfc">Write with NFC</string>
+    <!-- ####################################
+              App Auto Update
+    ###################################### -->
 
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <!-- XHED: App Auto Update dialog title -->
+    <string name="update_dialog_title">"Update available"</string>
+    <!-- XTXT: App Auto Update dialog message -->
+    <string name="update_dialog_message">"Please note, you can only use the Corona-Warn-App again once you have installed the latest update."</string>
+    <!-- XBUT: App Auto Update button -->
+    <string name="update_dialog_button">"Update"</string>
 
-    <string name="s_title_control">Control</string>
-    <string name="s_content_control">Digital I/O control.</string>
-    <string name="s_title_odometer">Odometer</string>
-    <string name="s_content_odometer">Digital encoder length measurement.</string>
-    <string name="s_title_paternoster">Paternoster</string>
-    <string name="s_content_paternoster">RFID based technology warehouse.</string>
-    <string name="s_title_nfc">NFC Tool</string>
+    <!-- ####################################
+                     Button
+    ###################################### -->
+    <!-- XACT: back button-->
+    <string name="button_back">"Back to previous page"</string>
+    <!-- XACT: proceed button-->
+    <string name="button_proceed">"Continue Button"</string>
+    <!-- XACT: share button-->
+    <string name="button_share">"Share"</string>
+    <!-- XACT: menu button-->
+    <string name="button_menu">"Menu"</string>
+
+    <!-- ####################################
+                   List
+    ###################################### -->
+
+    <string name="list_title_control">Control</string>
+    <string name="list_title_odometer">Odometer</string>
+    <string name="list_title_paternoster">Paternoster</string>
+    <string name="list_title_nfc">NFC Tool</string>
+    <string name="list_description_control">Digital I/O control.</string>
+    <string name="list_description_odometer">Digital encoder length measurement.</string>
+    <string name="list_description_paternoster">RFID based technology warehouse.</string>
+
+    <!-- ####################################
+                   Drawer
+    ###################################### -->
+
+    <string name="drawer_persistent_compact_header">PersistentHeader Drawer</string>
+    <string name="drawer_persistent_compact_header_desc">Smaller persistent account header</string>
+    <string name="drawer_compact_header">CompactHeader Drawer</string>
+    <string name="drawer_compact_header_desc">Smaller account header</string>
+    <string name="drawer_action_bar_drawer">ActionBar Drawer</string>
+    <string name="drawer_action_bar_drawer_desc">Shows how to use with an actionbar</string>
+    <string name="drawer_multi_drawer">Multi Drawer</string>
+    <string name="drawer_multi_drawer_desc">Left and Right side drawer</string>
+    <string name="drawer_non_translucent_status_drawer">NonTranslucentStatus Drawer</string>
+    <string name="drawer_non_translucent_status_drawer_desc">Drawer below statusBar</string>
+    <string name="drawer_advanced_drawer">Advanced Drawer</string>
+    <string name="drawer_advanced_drawer_desc">More advanced drawer features</string>
+    <string name="drawer_embedded_drawer">Embedded Drawer !!</string>
+    <string name="drawer_embedded_drawer_desc">Embed the drawer anywhere</string>
+    <string name="drawer_mini_drawer">MiniDrawer</string>
+    <string name="drawer_mini_drawer_desc">Always visible MiniDrawer</string>
+    <string name="drawer_fullscreen_drawer">FullScreen Drawer</string>
+    <string name="drawer_fullscreen_drawer_desc">Drawer in FullScreen activity</string>
+    <string name="drawer_custom_container_drawer_desc">Drawer in different view hirachy</string>
+    <string name="drawer_menu_drawer">Menu Drawer</string>
+    <string name="drawer_menu_drawer_desc">Drawer from menu.xml</string>
+    <string name="drawer_fragment_drawer">Fragment Drawer</string>
+    <string name="drawer_fragment_drawer_desc">Use drawer within fragments</string>
+    <string name="drawer_collapsing_toolbar_drawer">CollapsingToolbar Drawer</string>
+    <string name="drawer_collapsing_toolbar_drawer_desc">Uses a CollapsingToolbarLayout</string>
+    <string name="drawer_crossfade_drawer_layout_drawer">CrossfadeDrawerLayout</string>
+    <string name="drawer_crossfade_drawer_layout_drawer_desc">2-Step Drawer behavior</string>
+    <string name="drawer_navigation_drawer">Nav Controller Drawer</string>
+    <string name="drawer_navigation_drawer_desc">Drawer with a Nav Controller</string>
+
+    <string name="drawer_menu_drawer_item">Menu Drawer Item</string>
+    <string name="drawer_menu_drawer_item_desc">Sample menu item with overflow button</string>
+
+    <string name="drawer_home">Home</string>
+    <string name="drawer_free_play">Free Play</string>
+    <string name="drawer_custom">Custom</string>
+    <string name="drawer_section_header">Section Header</string>
+    <string name="drawer_settings">Settings</string>
+    <string name="drawer_help">Help</string>
+    <string name="drawer_open_source">Open Source</string>
+    <string name="drawer_contact">Contact</string>
 
     <string name="s_nfc_message_write_error">Error Writing Message!</string>
     <string name="s_nfc_message_write_success">Successfully written to Tag!</string>
@@ -85,5 +136,154 @@ C68.5809,277.075,273.832,71.8233,527.023,71.8233 Z
     <string name="s_tts_append">detected</string>
     <integer name="circle_original_width">1100</integer>
     <integer name="circle_original_height">1100</integer>
+    <string name="action_settings">Settings</string>
+
+    <!-- ####################################
+                  Settings
+    ###################################### -->
+
+    <!-- XHED: settings - settings overview page title -->
+    <string name="settings_title">"Settings"</string>
+    <!-- XTXT: settings - on, like a label next to a setting -->
+    <string name="settings_on">"On"</string>
+    <!-- XTXT: settings - off, like a label next to a setting -->
+    <string name="settings_off">"Off"</string>
+    <plurals name="settings_tracing_status_body_active">
+        <item quantity="one">"Exposure logging has been active for one day.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+        <item quantity="other">"Exposure logging has been active for %1$s days.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+        <item quantity="zero">"Exposure logging has been active for %1$s days.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+        <item quantity="two">"Exposure logging has been active for %1$s days.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+        <item quantity="few">"Exposure logging has been active for %1$s days.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+        <item quantity="many">"Exposure logging has been active for %1$s days.\nAn exposure check can only be reliable if exposure logging is permanently activated."</item>
+    </plurals>
+
+    <!-- ####################################
+               App Information
+    ###################################### -->
+
+    <!-- XHED: Page title for menu information page -->
+    <string name="information_title">"App Information"</string>
+    <!-- XTXT: Version information text -->
+    <string name="information_version">"Version: %1s"</string>
+
+    <!-- ####################################
+                 Error Messages
+        ###################################### -->
+    <!-- XTXT: error dialog - detailed text if device is offline  -->
+    <string name="errors_no_network">"You are not connected to the Internet."</string>
+    <!-- XTXT: error dialog - detailed text if device has not enough device space  -->
+    <string name="errors_not_enough_device_storage">"You do not have sufficient free memory."</string>
+
+    <!-- ####################################
+               Generic Error Messages
+        ###################################### -->
+    <!-- XHED: error dialog - headline -->
+    <string name="errors_generic_headline">"Something went wrong."</string>
+    <!-- XTXT: error dialog - short text for error reason -->
+    <string name="errors_generic_details_headline">"Cause"</string>
+    <!-- XBUT: error dialog - button close -->
+    <string name="errors_generic_button_positive">"OK"</string>
+    <!-- XBUT: error dialog - button show details -->
+    <string name="errors_generic_button_negative">"Details"</string>
+    <!-- XTXT: error dialog - text when no error description is available  -->
+    <string name="errors_generic_text_unknown_error_cause">"An unknown error occurred."</string>
+
+    <!-- ####################################
+                 Test Messages
+    ###################################### -->
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <!-- NOTR -->
+    <string name="test_menu_notification">"Test Notification"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_api_launch">"Android API Test(Manual Test)"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_start">"Start (Broadcast/Receive Bluetooth)"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_get_exposure_keys">"Get Exposure keys (my keys history from api)"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_share_my_keys">"Share my keys via Email"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_enter_other_keys">"Submit Exposure Key"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_show_qr_code">"Show QR Code"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_submit_keys">"Submit keys to Server"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_scan_qr_code">"Scan Exposure Key"</string>
+    <!-- NOTR -->
+    <string name="test_api_switch_last_three_hours_from_server">"Last 3 Hours Mode"</string>
+    <!-- NOTR -->
+    <string name="test_api_button_check_exposure">"Check Exposure Summary"</string>
+
+    <!-- ####################################
+                    Country
+    ###################################### -->
+
+    <!-- XHED: Country Entry for Austria -->
+    <string name="country_name_at">"Austria"</string>
+    <!-- XHED: Country Entry for Belgium -->
+    <string name="country_name_be">"Belgium"</string>
+    <!-- XHED: Country Entry for Bulgaria -->
+    <string name="country_name_bg">"Bulgaria"</string>
+    <!-- XHED: Country Entry for Switzerland -->
+    <string name="country_name_ch">"Switzerland"</string>
+    <!-- XHED: Country Entry for Cyprus -->
+    <string name="country_name_cy">"Cyprus"</string>
+    <!-- XHED: Country Entry for Czech Republic -->
+    <string name="country_name_cz">"Czech Republic"</string>
+    <!-- XHED: Country Entry for Germany -->
+    <string name="country_name_de">"Germany"</string>
+    <!-- XHED: Country Entry for Denmark -->
+    <string name="country_name_dk">"Denmark"</string>
+    <!-- XHED: Country Entry for Estonia -->
+    <string name="country_name_ee">"Estonia"</string>
+    <!-- XHED: Country Entry for Spain -->
+    <string name="country_name_es">"Spain"</string>
+    <!-- XHED: Country Entry for Finland -->
+    <string name="country_name_fi">"Finnland"</string>
+    <!-- XHED: Country Entry for France -->
+    <string name="country_name_fr">"France"</string>
+    <!-- XHED: Country Entry for Great Britain -->
+    <string name="country_name_uk">"United Kingdom"</string>
+    <!-- XHED: Country Entry for Greece -->
+    <string name="country_name_gr">"Greece"</string>
+    <!-- XHED: Country Entry for Croatia -->
+    <string name="country_name_hr">"Croatia"</string>
+    <!-- XHED: Country Entry for Hungary -->
+    <string name="country_name_hu">"Hungary"</string>
+    <!-- XHED: Country Entry for Ireland -->
+    <string name="country_name_ie">"Ireland"</string>
+    <!-- XHED: Country Entry for Iceland -->
+    <string name="country_name_is">"Iceland"</string>
+    <!-- XHED: Country Entry for Italy -->
+    <string name="country_name_it">"Italy"</string>
+    <!-- XHED: Country Entry for Liechtenstein -->
+    <string name="country_name_li">"Liechtenstein"</string>
+    <!-- XHED: Country Entry for Lithuania -->
+    <string name="country_name_lt">"Lithuania"</string>
+    <!-- XHED: Country Entry for Luxemburg -->
+    <string name="country_name_lu">"Luxembourg"</string>
+    <!-- XHED: Country Entry for Latvia -->
+    <string name="country_name_lv">"Latvia"</string>
+    <!-- XHED: Country Entry for Malta -->
+    <string name="country_name_mt">"Malta"</string>
+    <!-- XHED: Country Entry for Netherlands -->
+    <string name="country_name_nl">"Netherlands"</string>
+    <!-- XHED: Country Entry for Norway -->
+    <string name="country_name_no">"Norway"</string>
+    <!-- XHED: Country Entry for Poland -->
+    <string name="country_name_pl">"Poland"</string>
+    <!-- XHED: Country Entry for Portugal -->
+    <string name="country_name_pt">"Portugal"</string>
+    <!-- XHED: Country Entry for Rumania -->
+    <string name="country_name_ro">"Romania"</string>
+    <!-- XHED: Country Entry for Sweden -->
+    <string name="country_name_se">"Sweden"</string>
+    <!-- XHED: Country Entry for Slovenia -->
+    <string name="country_name_si">"Slovenia"</string>
+    <!-- XHED: Country Entry for Slovakia -->
+    <string name="country_name_sk">"Slovakia"</string>
 
 </resources>

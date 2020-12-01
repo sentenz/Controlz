@@ -1,4 +1,4 @@
-package com.sentenz.controlz.base
+package com.sentenz.controlz.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

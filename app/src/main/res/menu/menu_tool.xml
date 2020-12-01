@@ -2,23 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/nfc_read"
+        android:id="@+id/menu_nfc_read"
         android:orderInCategory="1"
-        android:title="@string/s_drawer_item_read_with_nfc"
+        android:title="@string/menu_nfc_read"
         app:showAsAction="never" />
     <item
-        android:id="@+id/nfc_write"
+        android:id="@+id/menu_nfc_write"
         android:orderInCategory="2"
-        android:title="@string/s_drawer_item_write_with_nfc"
+        android:title="@string/menu_nfc_write"
         app:showAsAction="never" />
     <item
-        android:id="@+id/opcua"
+        android:id="@+id/menu_opcua"
         android:icon="@drawable/ic_baseline_blur_on_24"
-        android:title="kjljk"
+        android:title="@string/menu_opcua"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/stt"
+        android:id="@+id/menu_stt"
         android:icon="@drawable/ic_baseline_keyboard_voice_24"
-        android:title="Item 1"
+        android:title="@string/menu_stt"
         app:showAsAction="always" />
 </menu>

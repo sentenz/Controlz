@@ -1,154 +1,155 @@
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@android:color/transparent"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--
-        <com.github.glomadrian.grav.GravView
-            android:id="@+id/grav"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
-            app:array_colors="@array/falcon"
-            app:animationGenerator="com.github.glomadrian.grav.generator.animation.PathAnimator"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.0"
-            app:path="@string/circle"
-            app:path_max_duration="2300"
-            app:path_min_duration="2000"
-            app:path_original_height="@integer/circle_original_height"
-            app:path_original_width="@integer/circle_original_width"
-            app:path_variance_from="1dp"
-            app:path_variance_to="20dp"
-            tools:ignore="MissingConstraints" />
--->
-
-        <com.victor.loading.rotate.RotateLoading
-            android:id="@+id/rotateloading"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="68dp"
-            android:layout_marginBottom="363dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:loading_color="@color/c_grey_700"
-            app:loading_width="10dp"
-            tools:ignore="MissingClass,MissingConstraints" />
-
-        <com.hanks.htextview.evaporate.EvaporateTextView
-            android:id="@+id/textview"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#0000"
-            android:gravity="center"
-            android:text="|Z|E|T|"
-            android:textColor="@color/c_white_1000"
-            android:textSize="70sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224"
-            tools:ignore="MissingConstraints" />
-
-        <com.github.florent37.materialtextfield.MaterialTextField
-            android:id="@+id/materialTextField"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginRight="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview"
-            app:mtf_backgroundColor="@color/c_grey_500"
-            app:mtf_cardCollapsedHeight="4dp"
-            app:mtf_hasFocus="false"
-            app:mtf_image="@drawable/ic_baseline_credit_card_24"
-            app:mtf_labelColor="@color/c_grey_100"
-            app:mtf_openKeyboardOnFocus="true"
-            tools:ignore="MissingConstraints">
-
             <!--
-            app:mtf_animationDuration="1000"
-            app:mtf_cardColor="@color/cardview_dark_background"
-            app:mtf_labelColor="@android:color/holo_red_dark"
-            app:mtf_openKeyboardOnFocus="true"
-            -->
+            <com.github.glomadrian.grav.GravView
+                android:id="@+id/grav"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+                app:array_colors="@array/falcon"
+                app:animationGenerator="com.github.glomadrian.grav.generator.animation.PathAnimator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:layout_constraintVertical_bias="0.0"
+                app:path="@string/circle"
+                app:path_max_duration="2300"
+                app:path_min_duration="2000"
+                app:path_original_height="@integer/circle_original_height"
+                app:path_original_width="@integer/circle_original_width"
+                app:path_variance_from="1dp"
+                app:path_variance_to="20dp"
+                tools:ignore="MissingConstraints" />
+    -->
 
-            <EditText
-                android:id="@+id/textedit"
+            <com.victor.loading.rotate.RotateLoading
+                android:id="@+id/rotateloading"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="68dp"
+                android:layout_marginBottom="363dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loading_color="@color/colorGrey_700"
+                app:loading_width="10dp"
+                tools:ignore="MissingClass,MissingConstraints" />
+
+            <com.hanks.htextview.evaporate.EvaporateTextView
+                android:id="@+id/textview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ID"
-                android:inputType="number"
-                android:textColor="@color/c_white_1000"
-                android:textSize="22sp"
+                android:layout_height="200dp"
+                android:background="#0000"
+                android:gravity="center"
+                android:text="|Z|E|T|"
+                android:textColor="@color/colorWhite_1000"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.224"
                 tools:ignore="MissingConstraints" />
 
-        </com.github.florent37.materialtextfield.MaterialTextField>
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/materialTextField"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="88dp"
+                android:layout_marginRight="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview"
+                app:mtf_backgroundColor="@color/colorGrey_500"
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_hasFocus="false"
+                app:mtf_image="@drawable/ic_baseline_credit_card_24"
+                app:mtf_labelColor="@color/colorGrey_100"
+                app:mtf_openKeyboardOnFocus="true"
+                tools:ignore="MissingConstraints">
 
-        <!--
-        <jp.co.recruit_lifestyle.android.widget.PlayPauseButton
-            android:id="@+id/play_pause_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="76dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextField"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
--->
-        <com.ohoussein.playpause.PlayPauseView
-            android:id="@+id/play_pause_view"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="505dp"
-            android:layout_marginBottom="26dp"
-            android:clickable="true"
-            android:foreground="?android:selectableItemBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:pause_bg="@color/colorPrimary"
-            app:play_bg="@color/c_grey_700"
-            app:fill_color="@color/c_white_1000"
-            tools:ignore="MissingConstraints" />
+                <!--
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/cardview_dark_background"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                -->
+
+                <EditText
+                    android:id="@+id/textedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ID"
+                    android:inputType="number"
+                    android:textColor="@color/colorWhite_1000"
+                    android:textSize="22sp"
+                    tools:ignore="MissingConstraints" />
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <!--
+            <jp.co.recruit_lifestyle.android.widget.PlayPauseButton
+                android:id="@+id/play_pause_button"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="76dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextField"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
+    -->
+            <com.ohoussein.playpause.PlayPauseView
+                android:id="@+id/play_pause_view"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="505dp"
+                android:layout_marginBottom="26dp"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pause_bg="@color/colorPrimary"
+                app:play_bg="@color/colorGrey_700"
+                app:fill_color="@color/colorWhite_1000"
+                tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+</layout>

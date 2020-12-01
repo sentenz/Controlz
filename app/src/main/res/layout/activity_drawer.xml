@@ -21,12 +21,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sentenz.controlz.vm.DrawerViewModel"/>
+            type="com.sentenz.controlz.ui.component.drawer.DrawerViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/root"
@@ -45,16 +46,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:fitsSystemWindows="true"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                    android:background="@android:color/transparent">
 
                     <com.google.android.material.appbar.CollapsingToolbarLayout
                         android:id="@+id/collapsingToolbar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fitsSystemWindows="true"
-                        app:contentScrim="?attr/colorPrimary"
-                        app:expandedTitleMarginEnd="64dp"
+                        app:contentScrim="@color/colorTransparent"
                         app:expandedTitleMarginStart="48dp"
+                        app:expandedTitleMarginEnd="52dp"
                         app:layout_scrollFlags="scroll|exitUntilCollapsed"
                         app:titleEnabled="true">
 
@@ -64,7 +65,7 @@
                             android:layout_height="match_parent"
                             android:fitsSystemWindows="true"
                             android:scaleType="centerCrop"
-                            app:layout_collapseMode="parallax" />
+                            app:layout_collapseMode="parallax"/>
 
                         <!-- As our statusBar is transparent below and content is moved behind our toolbar has to include the padding on top so we use this area -->
                         <androidx.appcompat.widget.Toolbar
@@ -72,7 +73,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
                             app:layout_collapseMode="pin"
-                            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                            android:background="@color/colorTransparent"
+                            app:popupTheme="@style/AppTheme.Home"
+                            android:theme="@style/AppTheme.Home"/>
 
                     </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -97,6 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
+                        android:background="@color/colorTransparent"
                         android:paddingTop="24dp">
 
                         <androidx.cardview.widget.CardView
@@ -118,7 +122,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_title_control"
+                                    android:text="@string/list_title_control"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
                                 <ImageView
@@ -131,7 +135,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_content_control" />
+                                    android:text="@string/list_description_control" />
 
                             </LinearLayout>
 
@@ -156,7 +160,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_title_odometer"
+                                    android:text="@string/list_title_odometer"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
                                 <ImageView
@@ -169,7 +173,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_content_odometer" />
+                                    android:text="@string/list_description_odometer" />
 
                             </LinearLayout>
 
@@ -194,7 +198,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_title_paternoster"
+                                    android:text="@string/list_title_paternoster"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
                                 <ImageView
@@ -203,12 +207,12 @@
                                     android:layout_gravity="center"
                                     android:src="@drawable/ic_guides_104dp"
                                     android:layout_marginBottom="16dp"
-                                    android:contentDescription="@string/s_content_paternoster" />
+                                    android:contentDescription="@string/list_description_paternoster" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/s_content_paternoster" />
+                                    android:text="@string/list_description_paternoster" />
 
                             </LinearLayout>
 
