@@ -671,8 +671,6 @@ Java_com_sentenz_controlz_ui_component_control_ControlActivity_jniOpcuaMessage(J
 
 /**
  * PaternosterActivity
- * See the corresponding Java source file located at:
- * app/src/main/java/com/sentenz/PaternosterActivity.java
  */
 
 extern "C"
@@ -723,3 +721,54 @@ Java_com_sentenz_controlz_ui_component_paternoster_PaternosterActivity_jniOpcuaM
 
     return env->NewStringUTF(t_string.c_str());
 }
+
+/**
+ * ControlFragment
+ */
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaConnect(JNIEnv *env,
+                                                                               jobject thiz) {
+    // TODO: implement jniOpcuaConnect()
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaDisconnect(JNIEnv *env,
+                                                                                  jobject thiz) {
+    // TODO: implement jniOpcuaDisconnect()
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaTaskUp(JNIEnv *env,
+                                                                              jobject thiz) {
+    // TODO: implement jniOpcuaTaskUp()
+    return 0;
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaTaskDown(JNIEnv *env,
+                                                                                jobject thiz) {
+    // TODO: implement jniOpcuaTaskDown()
+    return 0;
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaTaskIdle(JNIEnv *env,
+                                                                                jobject thiz) {
+    // TODO: implement jniOpcuaTaskIdle()
+    return 0;
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_sentenz_controlz_ui_component_control_ControlFragment_jniOpcuaMessage(JNIEnv *env,
+                                                                               jobject thiz) {
+    // TODO: implement jniOpcuaMessage()
+    return nullptr;
+}
+

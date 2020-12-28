@@ -2,18 +2,17 @@ package com.sentenz.controlz.ui.component.drawer
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
-import com.sentenz.controlz.ui.component.paternoster.PaternosterActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.sentenz.controlz.R
 import com.sentenz.controlz.ui.base.BaseViewModel
 import com.sentenz.controlz.ui.component.control.ControlActivity
+import com.sentenz.controlz.ui.component.control.ControlFragment
+import com.sentenz.controlz.ui.component.paternoster.PaternosterActivity
 
 
-/**
- * A ViewModel for [com.sentenz.controlz.view.DrawerActivity]
- *
- * MVVM usage from: https://gist.github.com/BapNesS/b9ec14b9f55131f2d172078f514d7e72
- */
 class DrawerViewModel : BaseViewModel() {
 
     /**
@@ -44,7 +43,20 @@ class DrawerViewModel : BaseViewModel() {
     }
 
     fun onOdometerClicked(view: View) {
-        setMessage(R.string.list_title_odometer)
+//        setMessage(R.string.list_title_odometer)
+        if (view.context is AppCompatActivity) {
+            val fragment = ControlFragment()
+            (view.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
+//                    .add(R.id.frameLayout, fragment).commit()
+                    .replace(R.id.frameLayout, fragment).commit()
+//                .replace(R.id.fragment_container, fragment).addToBackStack("main").commit()
+        }
+
+//        val transaction: FragmentTransaction = (view.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+//        transaction.add(R.id.frameLayout, fragment)
+//        transaction.commit()
+
     }
 
     /*

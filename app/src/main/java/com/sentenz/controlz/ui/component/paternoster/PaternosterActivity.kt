@@ -67,6 +67,54 @@ class PaternosterActivity : AppCompatActivity() {
         handler = Handler(Looper.getMainLooper())
     }
 
+    override fun onSaveInstanceState(_outState: Bundle) {
+        var outState = _outState
+        /* add the values which need to be saved from the drawer to the bundle */
+        //outState = slider.saveInstanceState(outState)
+        /* add the values which need to be saved from the drawer to the bundle */
+        //outState = slider_end.saveInstanceState(outState)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_tool, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        menu?.findItem(R.id.menu_opcua)?.isVisible = isOpcuaConnection
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        /** Handle item selection */
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            R.id.menu_nfc_read -> {
+                val intent = Intent(this, NfcActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_nfc_write -> {
+                true
+            }
+            R.id.menu_opcua -> {
+                Toast.makeText(this, R.string.menu_opcua_description, Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.menu_stt -> {
+                onSpeechToText()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         /** Connect OPC UA client */
@@ -99,54 +147,6 @@ class PaternosterActivity : AppCompatActivity() {
             //root.isDrawerOpen(slider) -> root.closeDrawer(slider)
             //root.isDrawerOpen(slider_end) -> root.closeDrawer(slider_end)
             else -> super.onBackPressed()
-        }
-    }
-
-    override fun onSaveInstanceState(_outState: Bundle) {
-        var outState = _outState
-        /* add the values which need to be saved from the drawer to the bundle */
-        //outState = slider.saveInstanceState(outState)
-        /* add the values which need to be saved from the drawer to the bundle */
-        //outState = slider_end.saveInstanceState(outState)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_tool, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.findItem(R.id.menu_opcua)?.isVisible = isOpcuaConnection
-        return super.onPrepareOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        /* Handle item selection */
-        when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-            R.id.menu_nfc_read -> {
-                val intent = Intent(this, NfcActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.menu_nfc_write -> {
-                return true
-            }
-            R.id.menu_opcua -> {
-                Toast.makeText(this, R.string.menu_opcua_description, Toast.LENGTH_SHORT).show()
-                return true
-            }
-            R.id.menu_stt -> {
-                onSpeechToText()
-                return true
-            }
-            else -> {
-                return super.onOptionsItemSelected(item)
-            }
         }
     }
 

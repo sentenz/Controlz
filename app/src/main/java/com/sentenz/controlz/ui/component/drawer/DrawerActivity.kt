@@ -43,7 +43,7 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding, DrawerViewModel>() {
         private const val PROFILE_SETTING = 100000
     }
 
-    /** Initialize MVVM */
+    /** Initialize data binding */
     override val layoutId = R.layout.activity_drawer
     override val viewModelClass = DrawerViewModel::class
 

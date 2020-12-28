@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.sentenz.controlz.BR
 import com.sentenz.controlz.utils.extension.navigateTo
 import com.sentenz.controlz.utils.extension.snack
@@ -28,16 +29,16 @@ abstract class BaseFragment<Binding : ViewDataBinding, VM : BaseViewModel> : Fra
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModelByClass(viewModelClass) as VM
+        viewModel = ViewModelProvider(this).get(viewModelClass.java)
+
         onViewModelInitialised()
     }
-
-    abstract fun getViewModelByClass(viewModelClass: KDeclarationContainer): Any
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.setVariable(variableId, viewModel)
-
+//        binding.lifecycleOwner = this
+//        binding.executePendingBindings()
         return binding.root
     }
 

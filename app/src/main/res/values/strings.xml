@@ -12,6 +12,8 @@
     <!-- ####################################
                      Menu
     ###################################### -->
+
+    <string name="menu_home">Home</string>
     <string name="menu_opcua">OPC UA</string>
     <string name="menu_opcua_description">OPC UA connection established</string>
     <string name="menu_stt">STT</string>

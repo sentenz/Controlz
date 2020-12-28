@@ -11,8 +11,9 @@ import com.sentenz.controlz.R
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_multi_sample.toolbar
 
-
-/** MVVM usage from: https://gist.github.com/BapNesS/3125b3f2aa6317a7486ee9c11fdc401 */
+/**
+ * A Activity for I/O control over a DPad.
+ */
 class ControlActivity : AppCompatActivity() {
 
     companion object {
@@ -22,7 +23,7 @@ class ControlActivity : AppCompatActivity() {
         }
     }
 
-    /** Declare and initialize variables */
+    /** Create and initialize variables */
     private var isOpcuaConnection: Boolean = false
     private lateinit var handler: Handler
 
@@ -35,6 +36,54 @@ class ControlActivity : AppCompatActivity() {
 
         /** Initialize handler */
         handler = Handler(Looper.getMainLooper())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_tool, menu)
+        /** Disable items from fragment */
+        menu.findItem(R.id.menu_stt)?.isVisible = false
+        menu.findItem(R.id.menu_nfc_write)?.isVisible = false
+        menu.findItem(R.id.menu_nfc_read)?.isVisible = false
+/*
+        val item: MenuItem = menu.findItem(R.id.menu_opcua)
+        if(item.title == "Archive") {
+            item.title = "Unarchive"
+        }
+*/
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        /** Enable/disable items in fragment */
+        menu?.findItem(R.id.menu_opcua)?.isVisible = isOpcuaConnection
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        /** Handle item selection */
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                Toast.makeText(this, R.string.menu_home, Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.menu_opcua -> {
+                Toast.makeText(this, R.string.menu_opcua_description, Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(_outState: Bundle) {
+        var outState = _outState
+        //add the values which need to be saved from the drawer to the bundle
+//        outState = slider.saveInstanceState(outState)
+        //add the values which need to be saved from the drawer to the bundle
+//        outState = slider_end.saveInstanceState(outState)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onResume() {
@@ -59,48 +108,9 @@ class ControlActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         when {
-//            root.isDrawerOpen(slider) -> root.closeDrawer(slider)
-//            root.isDrawerOpen(slider_end) -> root.closeDrawer(slider_end)
+            //root.isDrawerOpen(slider) -> root.closeDrawer(slider)
+            //root.isDrawerOpen(slider_end) -> root.closeDrawer(slider_end)
             else -> super.onBackPressed()
-        }
-    }
-
-    override fun onSaveInstanceState(_outState: Bundle) {
-        var outState = _outState
-        //add the values which need to be saved from the drawer to the bundle
-//        outState = slider.saveInstanceState(outState)
-        //add the values which need to be saved from the drawer to the bundle
-//        outState = slider_end.saveInstanceState(outState)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_tool, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.findItem(R.id.menu_opcua)?.isVisible = isOpcuaConnection
-        menu?.findItem(R.id.menu_stt)?.isVisible = false
-        menu?.findItem(R.id.menu_nfc_write)?.isVisible = false
-        menu?.findItem(R.id.menu_nfc_read)?.isVisible = false
-        return super.onPrepareOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        /** Handle item selection */
-        when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-            R.id.menu_opcua -> {
-                Toast.makeText(this, R.string.menu_opcua_description, Toast.LENGTH_SHORT).show()
-                return true
-            }
-            else -> {
-                return super.onOptionsItemSelected(item)
-            }
         }
     }
 
@@ -149,7 +159,6 @@ class ControlActivity : AppCompatActivity() {
 */
 
         dpad.onDirectionPressListener = { direction, action ->
-
             if (direction?.name.equals("UP")) {
                 when (action) {
                     MotionEvent.ACTION_UP -> jniOpcuaTaskIdle()
