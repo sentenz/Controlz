@@ -19,6 +19,7 @@ class ControlFragment : BaseFragment<FragmentControlBinding, ControlViewModel>()
 
     companion object {
         fun newInstance() = ControlFragment()
+
         init {
             /** Load JNI */
             System.loadLibrary("native-lib")
@@ -207,8 +208,8 @@ class ControlFragment : BaseFragment<FragmentControlBinding, ControlViewModel>()
 
     external fun jniOpcuaConnect()
     external fun jniOpcuaDisconnect()
-    external fun jniOpcuaTaskUp() : Int
-    external fun jniOpcuaTaskDown() : Int
-    external fun jniOpcuaTaskIdle() : Int
-    external fun jniOpcuaMessage() : String
+    external fun jniOpcuaTaskUp(): Int
+    external fun jniOpcuaTaskDown(): Int
+    external fun jniOpcuaTaskIdle(): Int
+    external fun jniOpcuaMessage(): String
 }
