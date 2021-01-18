@@ -22,7 +22,7 @@ buildscript {
                 drawerlayout     : '1.1.0-beta01',
                 constraintLayout : '2.0.4',
                 cardview         : '1.0.0',
-                kotlin           : "1.4.10",
+                kotlin           : "1.4.21",
                 fastadapter      : "5.0.2",
                 iconics          : "5.0.2",
                 aboutLibs        : "8.1.2",
